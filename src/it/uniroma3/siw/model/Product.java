@@ -25,9 +25,15 @@ public class Product {
     @OneToOne(mappedBy = "product")
     private OrderLine orderLine;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "product")
     private List<Provider> providers;
 
+    //Costruttore
+    public Product(String name, Float price, String description) {
+		this.name = name;
+		this.price = price;
+		this.description = description;
+	}
     
     //Getter&Setter
 	public Long getId() {

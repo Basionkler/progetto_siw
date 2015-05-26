@@ -9,7 +9,8 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="user") // or @Named("user")
 @SessionScoped
 public class UserBean implements Serializable {
-    private String name;
+	private static final long serialVersionUID = 856837602408500044L;
+	private String name;
     private String password;
 
     public String getName() { return name; }

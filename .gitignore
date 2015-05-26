@@ -4,3 +4,4 @@ bin
 .classpath
 .idea/
 progetto_siw.iml
+pom.xml

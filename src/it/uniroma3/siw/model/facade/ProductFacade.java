@@ -13,7 +13,7 @@ public class ProductFacade {
 	private EntityManager em;
 
 	public Product createProduct(String name, String code, Float price, String description) {
-		Product product = new Product(name, price, description);
+		Product product = new Product(name, price, description, code);
 		em.persist(product);
 		return product;
 	}

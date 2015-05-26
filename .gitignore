@@ -1,3 +1,5 @@
 build
+bin
 .classpath
-/bin/
+.idea/
+progetto_siw.iml

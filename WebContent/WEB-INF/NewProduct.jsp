@@ -1,12 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+    pageEncoding="US-ASCII"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1" />
+	<title>New Product</title>
 </head>
 <body>
-
+	<form action="<c:url value="/controller/product.create" />" method="get">
+	<div>Name: <input type="text" name="name" value="${param.name}"/> ${nameErr}</div>
+	<div>Code: <input type="text" name="code" value="${param.code}"/> ${codeErr}</div>
+	<div>Price: <input type="text" name="price" value="${param.price}"/> ${priceErr}</div>
+	<div>Description: <textarea rows="4" cols="50" name="description">${param.description}</textarea></div>
+	<div><input type="submit" name="sumbit" value="invia" /></div>
+	</form>
 </body>
 </html>

@@ -8,34 +8,40 @@ import java.util.*;
 @NamedQuery(name = "findAllProducts", query = "SELECT p FROM tb_product p")
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @Column(nullable = false)
-    private String name;
+	@Column(nullable = false)
+	private String name;
 
-    @Lob
-    @Column(nullable = false)
-    private String description;
+	@Lob
+	@Column(nullable = false)
+	private String description;
 
-    @Column(nullable = false)
-    private Float price;
+	@Column(nullable = false)
+	private Float price;
 
-    @OneToOne(mappedBy = "product")
-    private OrderLine orderLine;
+	@Column(nullable = false)
+	private String code;
 
-    @ManyToMany(mappedBy = "product")
-    private List<Provider> providers;
+	@OneToOne(mappedBy = "product")
+	private OrderLine orderLine;
 
-    //Costruttore
-    public Product(String name, Float price, String description) {
+	@ManyToMany(mappedBy = "product")
+	private List<Provider> providers;
+
+	//Costruttore
+	public Product(String name, Float price, String description, String code) {
 		this.name = name;
 		this.price = price;
 		this.description = description;
+		this.code = code;
 	}
-    
-    //Getter&Setter
+
+
+
+	//Getter&Setter
 	public Long getId() {
 		return id;
 	}
@@ -66,6 +72,14 @@ public class Product {
 
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public OrderLine getOrderLine() {

@@ -1,4 +1,4 @@
-package com.corejsf;
+package it.uniroma3.siw.bean;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;

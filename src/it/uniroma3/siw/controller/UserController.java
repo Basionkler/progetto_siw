@@ -1,4 +1,4 @@
-package it.uniroma3.siw.user;
+package it.uniroma3.siw.controller;
 
 import javax.faces.bean.ManagedBean;
 

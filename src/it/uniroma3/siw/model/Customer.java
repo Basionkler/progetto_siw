@@ -117,6 +117,10 @@ public class Customer {
 	public void setOrder(List<Order> orders) {
 		this.orders = orders;
 	}
+	
+	public void addOrder(Order order) {
+		if(order != null) this.orders.add(order);
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

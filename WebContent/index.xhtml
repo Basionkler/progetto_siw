@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+    	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
     <title>Welcome</title>
 </h:head>
 <h:body>
     <h:form>
-        <h3>Please enter your name and password.</h3>
+    
+        <h:panelGrid>
+	        <h:outputLabel value="Username: " style="font-weight:bold" />
+	        <h:inputText value="#{user.name}" />
+	        <h:outputLabel value="Password: " style="font-weight:bold" />
+	        <h:inputSecret value="#{user.password}" />
+	        <h:commandButton value="Login" action="welcome"/>
+  		</h:panelGrid>
+  		
+       <!--  <h3>Please enter your name and password.</h3>
         <table>
             <tr>
                 <td>Name:</td>
@@ -18,7 +28,7 @@
                 <td><h:inputSecret value="#{user.password}"/></td>
             </tr>
         </table>
-        <p><h:commandButton value="Login" action="welcome"/></p>
+        <p><h:commandButton value="Login" action="welcome"/></p> -->
     </h:form>
 </h:body>
 </html>

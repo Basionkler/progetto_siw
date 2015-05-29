@@ -41,7 +41,7 @@ public class Customer {
 	}
 
 	public Customer(Long id, String firstName, String lastName, String email,
-			String phoneNumber, Date dateOfBirth, Date registrationDate,
+			Date dateOfBirth, Date registrationDate,
 			Address address, List<Order> orders) {
 		super();
 		this.id = id;

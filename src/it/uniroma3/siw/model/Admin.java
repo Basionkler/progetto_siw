@@ -44,7 +44,7 @@ public class Admin {
 	@Column
 	private ProductCatalogue currentCatalogue;
 
-	@Column
+	@Column //L'admin si deve ricordare di tutti i cataloghi o solo di quello corrente?
 	private List<ProductCatalogue> allCatalogueList;
 
 	@Column
@@ -66,6 +66,8 @@ public class Admin {
 		this.customerRegistry = customerRegistry;
 
 	}
+	
+	
 
 	/**
 	 * il cliente viene aggiunto all'anagrafica clienti dall'admin
@@ -74,6 +76,22 @@ public class Admin {
 	public void addCustomerToRegistry(Customer c) {
 		if( c != null) this.customerRegistry.add(c);
 	}
+	
+	/****** CODICE DI PROVA ******/
+	
+	/* aggiorno solo il catalogo corrente, questo viene in automatico
+	 * inserito nel registro di tutti i  cataloghi
+	 */
+	private void addCatalogueToList(ProductCatalogue c) {
+		if(!this.allCatalogueList.contains(c))
+				this.allCatalogueList.add(c);
+	}
+	public void setCurrentCatalogue(ProductCatalogue c) {
+		this.currentCatalogue = c;
+		this.addCatalogueToList(c);
+	}
+	
+	/***** FINE CODICE DI PROVA *****/
 
 	/* GETTERS AND SETTERS */
 	// EVENTUALMENTE DA INSERIRE NELLA CLASSE ASTRATTA USER
@@ -133,9 +151,12 @@ public class Admin {
 		return currentCatalogue;
 	}
 
+	/*
+	 * Temporaneamente commentato per codice di prova più in alto
+	 * 
 	public void setCurrentCatalogue(ProductCatalogue currentCatalogue) {
 		this.currentCatalogue = currentCatalogue;
-	}
+	} */
 
 	public List<ProductCatalogue> getAllCatalogueList() {
 		return allCatalogueList;

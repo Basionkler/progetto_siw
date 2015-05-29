@@ -39,7 +39,7 @@ public class ProductCatalogue {
 		
 	}
 	
-	public void addProductToCatalogue(Product p) {
+	public void addProduct(Product p) {
 		if (p != null) this.productList.add(p);
 	}
 	

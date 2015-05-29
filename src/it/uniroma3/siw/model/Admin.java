@@ -69,12 +69,22 @@ public class Admin {
 	
 	
 
-	/**
+	/** 
+	 * da "siw-progetto-1.pptx"
 	 * il cliente viene aggiunto all'anagrafica clienti dall'admin
 	 * @param c	
 	 */
 	public void addCustomerToRegistry(Customer c) {
-		if( c != null) this.customerRegistry.add(c);
+		if(c != null) this.customerRegistry.add(c);
+	}
+	
+	/**
+	 * da "siw-progetto-1.pptx"
+	 * Inserimento di un prodotto nel catalogo
+	 * @param p
+	 */
+	public void addProductToCatalogue(Product p) {
+		if(p != null) this.currentCatalogue.addProduct(p);
 	}
 	
 	/****** CODICE DI PROVA ******/

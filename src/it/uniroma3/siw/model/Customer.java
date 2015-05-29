@@ -53,6 +53,26 @@ public class Customer {
 		this.address = address;
 		this.orders = orders;
 	}
+	
+	/**
+	 * da "siw-progetto-1.pptx"
+	 * @param order aggiunge un nuovo ordine
+	 */
+	public void addOrder(Order order) {
+		if(order != null) this.orders.add(order);
+	}
+	
+	/**
+	 * da "siw-progetto-1.pptx"
+	 * il cliente deve poter consultare il catalogo prodotti
+	 * @param pc catalogo dei prodotti
+	 */
+	public void consultCatalogue(ProductCatalogue pc) {
+		pc.getProductList();
+	}
+	
+	
+	// GETTERS AND SETTERS
 
 	public Long getId() {
 		return id;
@@ -114,12 +134,8 @@ public class Customer {
 		return orders;
 	}
 
-	public void setOrder(List<Order> orders) {
+	public void setOrders(List<Order> orders) {
 		this.orders = orders;
-	}
-	
-	public void addOrder(Order order) {
-		if(order != null) this.orders.add(order);
 	}
 
 	/* (non-Javadoc)
@@ -127,9 +143,9 @@ public class Customer {
 	 */
 	@Override
 	public String toString() {
-		return "Customer [firstName=" + firstName + ", lastName=" + lastName
+		return "[firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email +", dateOfBirth=" + dateOfBirth + ", registrationDate="
 				+ registrationDate + ", address=" + address + ", orders="
-				+ orders + "]";
+				+ orders + "]\n";
 	}
 }

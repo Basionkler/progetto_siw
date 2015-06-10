@@ -15,11 +15,11 @@ public class ProductController {
 	private Float price;
 	private String description;
 	private String code;
-	private Product product;
+	private Product product = new Product();
 
 	public String createProduct() {
 		this.product = productFacade.createProduct(name, code, price, description);
-		return "product"; 
+		return "product.jsp"; 
 	}
 
 	//getter e setter

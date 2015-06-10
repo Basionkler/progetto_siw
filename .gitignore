@@ -1,7 +1,7 @@
 target
 build
 bin
-Make
+maven
 
 .classpath
 .idea/

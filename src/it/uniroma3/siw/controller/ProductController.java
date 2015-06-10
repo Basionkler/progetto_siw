@@ -17,9 +17,9 @@ public class ProductController {
 	private String code;
 	private Product product;
 
-	public String createProduct() {
+	public Product createProduct() {
 		this.product = productFacade.createProduct(name, code, price, description);
-		return "product"; 
+		return product; 
 	}
 
 	//getter e setter

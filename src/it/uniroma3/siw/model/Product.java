@@ -30,6 +30,8 @@ public class Product {
 
 	@ManyToMany(mappedBy = "product")
 	private List<Provider> providers;
+	
+	public Product(){}
 
 	//Costruttore
 	public Product(String name, Float price, String description, String code) {

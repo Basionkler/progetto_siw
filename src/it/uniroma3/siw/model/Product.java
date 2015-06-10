@@ -100,10 +100,10 @@ public class Product {
 		this.providers = providers;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "[name=" + name + ", description=" + description
 				+ ", price=" + price + "]\n";
-	}
+	}*/
 
 }

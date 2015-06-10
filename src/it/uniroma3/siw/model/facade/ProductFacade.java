@@ -16,15 +16,7 @@ public class ProductFacade {
     private EntityManager em;
     
 	public Product createProduct(String name, String code, Float price, String description) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		Product product = new Product(name, description, price, code);
-=======
-		Product product = new Product(name, code, price, description);
->>>>>>> origin/master
-=======
-		Product product = new Product(name, code, price, description);
->>>>>>> origin/master
+		Product product = new Product(name, price, description, code);
 		em.persist(product);
 		return product;
 	}

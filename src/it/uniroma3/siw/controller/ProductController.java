@@ -1,10 +1,11 @@
 package it.uniroma3.siw.controller;
 
 
+import java.util.List;
 
 import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.ProductFacade;
-import java.util.List;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -18,8 +19,6 @@ public class ProductController {
 	private Float price;
 	private String description;
 	private String code;
-<<<<<<< HEAD
-<<<<<<< HEAD
 	private Product product;
 	private List<Product> products;
 	
@@ -44,20 +43,6 @@ public class ProductController {
 	public String findProduct(Long id) {
 		this.product = productFacade.getProduct(id);
 		return "product";
-=======
-	private Product product = new Product();
-
-	public String createProduct() {
-		this.product = productFacade.createProduct(name, code, price, description);
-		return "product.jsp"; 
->>>>>>> origin/master
-=======
-	private Product product = new Product();
-
-	public String createProduct() {
-		this.product = productFacade.createProduct(name, code, price, description);
-		return "product.jsp"; 
->>>>>>> origin/master
 	}
 
 	public Long getId() {

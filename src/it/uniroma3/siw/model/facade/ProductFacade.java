@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Stateless(name="pFacade")
 public class ProductFacade {
 
-	@PersistenceContext(unitName = "unit-jee-es1")
+	@PersistenceContext(unitName = "emProduct")
 	private EntityManager em;
 
 	public Product createProduct(String name, String code, Float price, String description) {

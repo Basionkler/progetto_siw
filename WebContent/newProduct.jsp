@@ -9,38 +9,41 @@
 </head>
 
 <body>
-	<f:view>
-		<h:form>
-    Name:
+<f:view>
+<h:form>
+	<div>
+    	Name:
     	<h:inputText value="#{productController.name}" required="true"
-				requiredMessage="Il nome è obligatorio" id="name">
-			</h:inputText>
-			<h:message for="name" styleClass="error" />
-
+			requiredMessage="Il nome è obligatorio" id="name">
+		</h:inputText>
+		<h:message for="name" styleClass="error" />
+	</div>
+	<div>
     Code:
     	<h:inputText value="#{productController.code}" required="true"
-				requiredMessage="Il Codice è obligatorio"
-				validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
-				id="code">
-				<f:validateLength minimum="6" maximum="10" />
-			</h:inputText>
-			<h:message for="code" styleClass="error" />
-
-	Price:
+			requiredMessage="Il Codice è obligatorio"
+			validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
+			id="code">
+			<f:validateLength minimum="6" maximum="10" />
+		</h:inputText>
+		<h:message for="code" styleClass="error" />
+	</div>
+	<div>
+		Price:
 		<h:inputText value="#{productController.price}" required="true"
-				requiredMessage="Il prezzo è obligatorio"
-				converterMessage="Il prezzo deve essere un numero"
-				validatorMessage="il prezzo deve essere maggiore di zero" id="price">
-				<f:validateDoubleRange minimum="0" />
-			</h:inputText>
-			<h:message for="code" styleClass="error" />
-
-	Description:
+			requiredMessage="Il prezzo è obligatorio"
+			converterMessage="Il prezzo deve essere un numero"
+			validatorMessage="il prezzo deve essere maggiore di zero" id="price">
+			<f:validateDoubleRange minimum="0" />
+		</h:inputText>
+		<h:message for="code" styleClass="error" />
+	</div>
+	<div>
+		Description:
 		<h:inputText value="#{productController.description}" required="false">
 			</h:inputText>
-			<h:commandButton value="Submit"
-				action="#{productController.createProduct}" />
-
+			<h:commandButton value="Submit"	action="#{productController.createProduct}" />
+ 	</div>
 		</h:form>
 	</f:view>
 </body>

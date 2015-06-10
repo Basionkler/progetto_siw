@@ -1,5 +1,7 @@
 package it.uniroma3.siw.model;
 
+import it.uniroma3.siw.abstr.User;
+
 import javax.persistence.*;
 
 import java.util.*;
@@ -13,33 +15,7 @@ import java.util.*;
 @Entity
 @Table(name="tb_admin")
 @NamedQuery(name = "findAllAdmins", query = "SELECT a FROM tb_admin a")
-public class Admin {
-
-	// ATTRIBUTI DA INSERIRE NELLA CLASSE ASTRATTA
-
-	//INIZIO
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
-	@Column(nullable = false)
-	private String firstName;
-
-	@Column(nullable = false)
-	private String lastName;
-
-	@Column(nullable = false)
-	private String email;
-
-	//private String password ?
-
-	@Column(nullable = false)
-	private Date dateOfBirth;
-
-	@Column(nullable = false)
-	private Date registrationDate;
-
-	//FINE
+public class Admin extends User{
 
 	@Column
 	private ProductCatalogue currentCatalogue;
@@ -50,16 +26,10 @@ public class Admin {
 	@Column
 	private List<Customer> customerRegistry;
 
-	public Admin(Long id, String firstName, String lastName, String email,
+	public Admin(Long id, String firstName, String lastName, String email, String password,
 			Date dateOfBirth, Date registrationDate, List<Customer> customerRegistry, ProductCatalogue currentCatalogue) {
 
-		//super(id, firstName, lastName, email, dateOfBirth, registrationDate);
-
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.dateOfBirth = dateOfBirth;
-		this.registrationDate = registrationDate;
+		super(id, firstName, lastName, email, password, dateOfBirth, registrationDate);
 
 		this.currentCatalogue = currentCatalogue;
 		this.allCatalogueList = new ArrayList<ProductCatalogue>();
@@ -67,6 +37,9 @@ public class Admin {
 
 	}
 	
+	public boolean isAdmin() {
+		return super.isAdmin = true;
+	}
 	
 
 	/** 
@@ -102,60 +75,6 @@ public class Admin {
 	}
 	
 	/***** FINE CODICE DI PROVA *****/
-
-	/* GETTERS AND SETTERS */
-	// EVENTUALMENTE DA INSERIRE NELLA CLASSE ASTRATTA USER
-	//INIZIO
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public Date getRegistrationDate() {
-		return registrationDate;
-	}
-
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
-	}
-
-	// FINE
 
 	public ProductCatalogue getCurrentCatalogue() {
 		return currentCatalogue;

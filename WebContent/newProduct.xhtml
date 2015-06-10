@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+    	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<title>New Product</title>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"></link>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<h:body>
+	<f:view>
+		<h:form>
+		<h:panelGrid>
+   		<h:outputLabel value ="Nome"></h:outputLabel>
+    	<h:inputText value="#{productController.name}" required="true"
+				requiredMessage="Il nome è obligatorio" id="name">
+		<h:message for="name" styleClass="error" /></h:inputText>
+		<br></br>
+   		<h:outputLabel value ="Codice"></h:outputLabel>
+    	<h:inputText value="#{productController.code}" required="true"
+				requiredMessage="Il Codice è obligatorio"
+				validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
+				id="code">
+				<f:validateLength minimum="6" maximum="10" />
+		<h:message for="code" styleClass="error" /></h:inputText>
+		<br></br>
+		<h:outputLabel value ="Prezzo"></h:outputLabel>
+		<h:inputText value="#{productController.price}" required="true"
+				requiredMessage="Il prezzo è obligatorio"
+				converterMessage="Il prezzo deve essere un numero"
+				validatorMessage="il prezzo deve essere maggiore di zero" id="price">
+			<f:validateDoubleRange minimum="0" />
+		<h:message for="price" styleClass="error" /></h:inputText>
+		<br></br>
+		<h:outputLabel value ="Descrizione"></h:outputLabel>
+		<h:inputText value="#{productController.description}" required="false"></h:inputText>
+		<br><br></br></br>
+			<h:commandButton value="Submit" action="#{productController.createProduct}" />
+		</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+</html>

@@ -30,24 +30,19 @@ public class Product {
 
 	@ManyToMany(mappedBy = "product")
 	private List<Provider> providers;
-	
-	public Product(){}
 
 	//Costruttore
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public Product(String name,String code, Float price, String description) {
-=======
-	public Product(String name, String code, Float price, String description) {
->>>>>>> origin/master
-=======
-	public Product(String name, String code, Float price, String description) {
->>>>>>> origin/master
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.code = code;
-	}
+
+	public Product() {
+    }
+
+	public Product(String name, Float price, String description, String code) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.code = code;
+}
+
 
 
 

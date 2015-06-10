@@ -17,7 +17,11 @@ public class ProductFacade {
     
 	public Product createProduct(String name, String code, Float price, String description) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Product product = new Product(name, description, price, code);
+=======
+		Product product = new Product(name, code, price, description);
+>>>>>>> origin/master
 =======
 		Product product = new Product(name, code, price, description);
 >>>>>>> origin/master

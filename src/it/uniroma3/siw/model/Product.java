@@ -35,7 +35,11 @@ public class Product {
 
 	//Costruttore
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Product(String name,String code, Float price, String description) {
+=======
+	public Product(String name, String code, Float price, String description) {
+>>>>>>> origin/master
 =======
 	public Product(String name, String code, Float price, String description) {
 >>>>>>> origin/master

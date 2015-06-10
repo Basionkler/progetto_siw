@@ -1,15 +1,9 @@
 package it.uniroma3.siw.action;
 
-import it.uniroma3.siw.model.facade.ProductFacade;
-
 import javax.servlet.http.HttpServletRequest;
 
-public class Action {
+public interface Action {
 
-	public String perform(HttpServletRequest request,
-			ProductFacade productFacade) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String perform(HttpServletRequest request);
 
 }

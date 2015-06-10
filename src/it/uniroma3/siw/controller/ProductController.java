@@ -1,34 +1,55 @@
 package it.uniroma3.siw.controller;
 
-import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
+
 
 import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.ProductFacade;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 @ManagedBean
 public class ProductController {
-
-	@EJB
-	private ProductFacade productFacade;
+	
+	@ManagedProperty(value="#{param.id}")
+	private Long id;
 	private String name;
 	private Float price;
 	private String description;
 	private String code;
 	private Product product;
-
+	private List<Product> products;
+	
+	@EJB
+	private ProductFacade productFacade;
+	
 	public String createProduct() {
 		this.product = productFacade.createProduct(name, code, price, description);
 		return "product"; 
 	}
-
-	//getter e setter
-	public ProductFacade getProductFacade() {
-		return productFacade;
+	
+	public String listProducts() {
+		this.products = productFacade.getAllProducts();
+		return "products"; 
 	}
 
-	public void setProductFacade(ProductFacade productFacade) {
-		this.productFacade = productFacade;
+	public String findProduct() {
+		this.product = productFacade.getProduct(id);
+		return "product";
+	}
+	
+	public String findProduct(Long id) {
+		this.product = productFacade.getProduct(id);
+		return "product";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -71,4 +92,13 @@ public class ProductController {
 		this.product = product;
 	}
 
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 }
+
+

@@ -13,14 +13,16 @@
 <h:form>
 	<div>
     	Name:
-    	<h:inputText value="#{productController.name}" required="true"
+    	<h:inputText value="#{productController.name}"
+    		required="true"
 			requiredMessage="Il nome è obligatorio" id="name">
 		</h:inputText>
 		<h:message for="name" styleClass="error" />
 	</div>
 	<div>
-    Code:
-    	<h:inputText value="#{productController.code}" required="true"
+ 		Code:
+    	<h:inputText value="#{productController.code}"
+    		required="true"
 			requiredMessage="Il Codice è obligatorio"
 			validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
 			id="code">
@@ -30,13 +32,14 @@
 	</div>
 	<div>
 		Price:
-		<h:inputText value="#{productController.price}" required="true"
+		<h:inputText value="#{productController.price}"
+			required="true"
 			requiredMessage="Il prezzo è obligatorio"
 			converterMessage="Il prezzo deve essere un numero"
 			validatorMessage="il prezzo deve essere maggiore di zero" id="price">
 			<f:validateDoubleRange minimum="0" />
 		</h:inputText>
-		<h:message for="code" styleClass="error" />
+		<h:message for="price" styleClass="error" />
 	</div>
 	<div>
 		Description:

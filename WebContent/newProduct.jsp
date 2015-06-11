@@ -44,8 +44,8 @@
 	<div>
 		Description:
 		<h:inputText value="#{productController.description}" required="false">
-			</h:inputText>
-			<h:commandButton value="Submit"	action="#{productController.createProduct}" />
+		</h:inputText>
+		<h:commandButton value="Submit"	action="#{productController.createProduct}" />
  	</div>
 		</h:form>
 	</f:view>

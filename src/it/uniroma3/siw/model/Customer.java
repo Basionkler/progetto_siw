@@ -1,7 +1,5 @@
 package it.uniroma3.siw.model;
 
-import it.uniroma3.siw.abstr.User;
-
 import javax.persistence.*;
 
 import java.util.*;
@@ -9,7 +7,29 @@ import java.util.*;
 @Entity
 @Table(name="tb_customer")
 @NamedQuery(name = "findAllCustomers", query = "SELECT c FROM tb_customer c")
-public class Customer extends User{
+public class Customer{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Column(nullable = false)
+	private String firstName;
+
+	@Column(nullable = false)
+	private String lastName;
+
+	@Column(nullable = false)
+	private String email;
+	
+	@Column(nullable = false)
+	private String password;
+	
+	@Column(nullable = false)
+	private Date dateOfBirth;
+
+	@Column(nullable = false)
+	private Date registrationDate;
 	
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
@@ -18,22 +38,19 @@ public class Customer extends User{
 	private List<Order> orders;
 
 	// Costruttori
-
-	public Customer(Long id, String firstName, String lastName, String email, String password,
-			Date dateOfBirth, Date registrationDate,
+	public Customer(String firstName, String lastName, String email,
+			String password, Date dateOfBirth, Date registrationDate,
 			Address address, List<Order> orders) {
-		super(id, firstName, lastName, email, password, dateOfBirth, registrationDate);
-
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.dateOfBirth = dateOfBirth;
+		this.registrationDate = registrationDate;
 		this.address = address;
 		this.orders = orders;
 	}
-	
 
-	@Override
-	public boolean isAdmin() {
-		return super.isAdmin;
-	}
-	
 	/**
 	 * da "siw-progetto-1.pptx"
 	 * @param order aggiunge un nuovo ordine

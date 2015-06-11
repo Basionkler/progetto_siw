@@ -50,7 +50,7 @@
 			<h:message for="password" styleClass="error" />
 		</div>
 		<div>
-			<h:commandButton value="Submit"	action="#{productController.createProduct}" />
+			<h:commandButton value="Submit"	action="#{customerController.createCustomer}" />
 		</div>
 	</h:form>
 </f:view>

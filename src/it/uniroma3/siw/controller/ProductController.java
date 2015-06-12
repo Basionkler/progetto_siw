@@ -10,7 +10,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
-@ManagedBean(name="pController")
+@ManagedBean(name="productController")
 public class ProductController {
 	
 	@ManagedProperty(value="#{param.id}")

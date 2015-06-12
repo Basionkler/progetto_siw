@@ -12,7 +12,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="cController")
+@ManagedBean(name="customerController")
 @SessionScoped
 public class CustomerController {
 	

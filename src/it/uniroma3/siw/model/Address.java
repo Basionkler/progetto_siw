@@ -37,17 +37,12 @@ public class Address {
     public Address() {		
 	}
     
-    public Address(Long id, String street, String city, String state,
-			String zipCode, String country, Customer customer, Provider provider) {
-		super();
-		this.id = id;
+    public Address(String street, String city, String state, String zipCode, String country) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
 		this.country = country;
-		this.customer = customer;
-		this.provider = provider;
 	}
     
 //getter & setter

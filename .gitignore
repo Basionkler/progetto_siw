@@ -4,6 +4,7 @@ bin
 maven
 
 .classpath
-.idea/
+.idea
+.settings
 progetto_siw.iml
 pom.xml

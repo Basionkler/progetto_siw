@@ -3,8 +3,6 @@ package it.uniroma3.siw.model.facade;
 import java.util.List;
 
 import it.uniroma3.siw.model.Address;
-import it.uniroma3.siw.model.Product;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,16 +31,16 @@ public class AddressFacade {
 			return addresses;
 		}
 
-		public void updateProduct(Product product) {
-	        em.merge(product);
+		public void updateAddress(Address address) {
+	        em.merge(address);
 		}
 		
-	    private void deleteProduct(Product product) {
-	        em.remove(product);
+	    private void deleteAddress(Address address) {
+	        em.remove(address);
 	    }
 
-		public void deleteProduct(Long id) {
-	        Product product = em.find(Product.class, id);
-	        deleteProduct(product);
+		public void deleteAddress(Long id) {
+	        Address address = em.find(Address.class, id);
+	        deleteAddress(address);
 		}
 }

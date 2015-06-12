@@ -12,7 +12,7 @@
 <f:view>
 	<h:form>
 		<div>
-    		Name:
+    		<h:outputLabel />Name:
 	    	<h:inputText value="#{customerController.firstName}"
     			required="true"
 				requiredMessage="Il nome è obligatorio" id="firstname">
@@ -20,7 +20,7 @@
 			<h:message for="name" styleClass="error" />
 		</div>
 		<div>
-    		Cognome:
+    		<h:outputLabel />Cognome:
     		<h:inputText value="#{customerController.lastName}"
     			required="true"
 				requiredMessage="Il cognome è obligatorio" id="lastname">
@@ -28,7 +28,7 @@
 			<h:message for="lastname" styleClass="error" />
 		</div>
 		<div>
- 			email:
+ 			<h:outputLabel />Email
     		<h:inputText value="#{customerController.email}"
     			required="true"
 				requiredMessage="la mail è obligatoria"
@@ -39,7 +39,7 @@
 			<h:message for="email" styleClass="error" />
 		</div>
 		<div>
- 			password:
+ 			<h:outputLabel />Password:
     		<h:inputText value="#{customerController.password}"
     			required="true"
 				requiredMessage="la password è obligatoria"
@@ -48,6 +48,16 @@
 				<f:validateLength minimum="6" maximum="100" />
 			</h:inputText>
 			<h:message for="password" styleClass="error" />
+		</div>
+		<div>
+		<h:outputLabel />Data di Nascita:
+		<h:inputText value = "#{customerController.dateOfBirth}"
+				required = "true"
+				requiredMessage="la data di nascita è obbligatoria"
+				id="dateOfBirth">
+				<f:convertDateTime pattern="yyyy-MM-dd"/>
+				<h:message for="password" styleClass="error" />
+		</h:inputText>
 		</div>
 		<div>
 			<h:commandButton value="Submit"	action="#{customerController.createCustomer}" />

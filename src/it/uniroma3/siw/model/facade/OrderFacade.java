@@ -7,7 +7,6 @@ import it.uniroma3.siw.model.Order;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
 
 @Stateless
 public class OrderFacade {

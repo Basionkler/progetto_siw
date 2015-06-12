@@ -30,7 +30,7 @@ public class CustomerController {
 	private CustomerFacade customerFacade;
     
     public String createCustomer() {
-		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, registrationDate, address, orders);
+		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, address, orders);
 		return "customer"; 
 	}
 

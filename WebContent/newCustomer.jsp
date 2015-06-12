@@ -55,8 +55,8 @@
 				required = "true"
 				requiredMessage="la data di nascita è obbligatoria"
 				id="dateOfBirth">
-				<f:convertDateTime pattern="yyyy-MM-dd"/>
-				<h:message for="password" styleClass="error" />
+				<f:convertDateTime pattern="dd-MM-yyyy"/>
+				<h:message for="dateOfBirth" styleClass="error" />
 		</h:inputText>
 		</div>
 		<div>

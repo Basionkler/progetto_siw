@@ -60,6 +60,46 @@
 		</h:inputText>
 		</div>
 		<div>
+			<h:outputLabel />Via:
+			<h:inputText value="#{customerController.address.street}"
+				required="true"
+				requiredMessage="la via è obligatoria"
+				validatorMessage="la via deve essere lunga almeno 6 caratteri"
+				id="street">
+			<f:validateLength minimum="6" maximum="100" />
+			</h:inputText>
+			<h:message for="street" styleClass="error" />
+		</div>
+		<div>
+			<h:outputLabel />city:
+			<h:inputText value="#{customerController.address.city}"
+				required="true"
+				requiredMessage="la città è obligatoria"
+				id="city">
+			</h:inputText>
+			<h:message for="city" styleClass="error" />
+		</div>
+		<div>
+			<h:outputLabel />state:
+			<h:inputText value="#{customerController.address.state}"
+				required="true"
+				requiredMessage="lo stato è obligatorio"
+				id="state">
+			</h:inputText>
+			<h:message for="state" styleClass="error" />
+		</div>
+		<div>
+			<h:outputLabel />zipCode:
+			<h:inputText value="#{customerController.address.zipCode}"
+				required="true"
+				requiredMessage="lo zipCode è obligatorio"
+				validatorMessage="lo zipCode deve essere lunga 5 caratteri"
+				id="zipCode">
+			<f:validateLength minimum="5" maximum="5" />
+			</h:inputText>
+			<h:message for="zipCode" styleClass="error" />
+		</div>
+		<div>
 			<h:commandButton value="Submit"	action="#{customerController.createCustomer}" />
 		</div>
 	</h:form>

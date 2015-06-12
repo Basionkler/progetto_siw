@@ -1,20 +1,14 @@
 package it.uniroma3.siw.controller;
 
-import java.util.List;
-
 import it.uniroma3.siw.model.Address;
 import it.uniroma3.siw.model.Customer;
-import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.Provider;
 import it.uniroma3.siw.model.facade.AddressFacade;
-import it.uniroma3.siw.model.facade.ProductFacade;
-
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name="aController")
 public class AddressController {
-
 
 	private Long id;
 	private String street;
@@ -30,8 +24,8 @@ public class AddressController {
 	private AddressFacade addressFacade;
 
 	public String createAddress() {
-		this.address = addressFacade.createAddress(street, city, state, zipCode, country);
-		return "product"; 
+		this.address = addressFacade.createAddress(street, city, state, zipCode, country, customer);
+		return "customer"; 
 	}
 
 	public String findAddress() {
@@ -121,6 +115,5 @@ public class AddressController {
 	public void setAddressFacade(AddressFacade addressFacade) {
 		this.addressFacade = addressFacade;
 	}
-
 }
 

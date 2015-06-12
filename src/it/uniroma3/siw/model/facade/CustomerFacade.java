@@ -24,14 +24,19 @@ public class CustomerFacade {
 
 	}
 	
-	public Customer getCustomer(Long id) {
-		return em.find(Customer.class, id);
+	public Customer getCustomer(Long id){
+		Customer customer = em.find(Customer.class, id);
+		return customer;
 	}
 
 	public Customer getCustomer(String email) {
-		TypedQuery<Customer> q = em.createNamedQuery("findCustomerByEmail", Customer.class);
-		q.setParameter("email", email);
-		return q.getSingleResult();
+		Customer customer = em.find(Customer.class, email);
+		return customer;
 	}
+
+	public boolean controllaPassword(Customer c, String password) {
+		return c.getPassword().equals(password);
+	}
+
 }
 

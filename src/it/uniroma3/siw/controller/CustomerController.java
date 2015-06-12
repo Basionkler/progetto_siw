@@ -35,12 +35,19 @@ public class CustomerController {
 	}
 
 	public String login() {
-		Customer c = CustomerFacade.getCustomer(this.email);
-		if (c.password.equals(this.password)) {
+		Customer c = customerFacade.getCustomer(this.email);
+		if(c!=null && customerFacade.controllaPassword(c,this.password)){
 			return "welcome";
 		} else {
 			return "error";
 		}
+		
+//		Customer c = CustomerFacade.getCustomer((long) 2);
+//		if (c.password.equals(this.password)) {
+//			return "welcome";
+//		} else {
+//			return "error";
+//		}
 	}
     
 //Getter&Setter    

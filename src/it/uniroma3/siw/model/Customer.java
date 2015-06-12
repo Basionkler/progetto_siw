@@ -7,7 +7,6 @@ import java.util.*;
 @Entity
 @Table(name="tb_customer")
 @NamedQuery(name = "findAllCustomers", query = "SELECT c FROM tb_customer c")
-@NamedQuery(name = "findCustomerByEmail", query = "SELECT c FROM tb_customer WHERE c.email = :email")
 public class Customer{
 	
 	@Id
@@ -69,7 +68,6 @@ public class Customer{
 		pc.getProductList();
 	}
 	
-	
 	// GETTERS AND SETTERS
 
 	public Address getAddress() {
@@ -88,4 +86,61 @@ public class Customer{
 		this.orders = orders;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
+	
 }

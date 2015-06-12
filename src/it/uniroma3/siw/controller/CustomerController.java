@@ -34,6 +34,14 @@ public class CustomerController {
 		return "newAddress"; 
 	}
 
+	public String login() {
+		Customer c = CustomerFacade.getCustomer(this.email);
+		if (c.password.equals(this.password)) {
+			return "welcome";
+		} else {
+			return "error";
+		}
+	}
     
 //Getter&Setter    
     

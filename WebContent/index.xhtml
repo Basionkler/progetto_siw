@@ -19,15 +19,20 @@
 	    <h:form>
 	    	<!-- Da implementare il controllo sull'utente -->
 	        <h:panelGrid>
-		        <h:outputLabel value="Username: " style="font-weight:bold" />
-		        <h:inputText value="#{user.name}" />
+		        <h:outputLabel value="Email: " style="font-weight:bold" />
+		        <h:inputText value="#{cController.email" />
 		        <h:outputLabel value="Password: " style="font-weight:bold" />
+<<<<<<< HEAD
 		        <h:inputSecret value="#{user.password}" />
 		        <h:commandButton value="Login" action="welcome"/>
 	  		</h:panelGrid><br /><br />
 	  		<h:panelGrid>
 	  			<h:outputLabel />Non sei registrato?
 	  			<h:commandButton value="Registrati!" action="newCustomer.jsp" />
+=======
+		        <h:inputSecret value="#{cController.password}" />
+		        <h:commandButton value="Login" action="#{cController.login}"/>
+>>>>>>> origin/login
 	  		</h:panelGrid>
 	    </h:form>
     </div>

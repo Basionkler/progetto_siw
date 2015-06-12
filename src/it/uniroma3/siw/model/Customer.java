@@ -7,6 +7,7 @@ import java.util.*;
 @Entity
 @Table(name="tb_customer")
 @NamedQuery(name = "findAllCustomers", query = "SELECT c FROM tb_customer c")
+@NamedQuery(name = "findCustomerByEmail", query = "SELECT c FROM tb_customer WHERE c.email = :email")
 public class Customer{
 	
 	@Id

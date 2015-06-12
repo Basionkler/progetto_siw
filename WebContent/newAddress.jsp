@@ -52,9 +52,6 @@
 			<h:message for="zipCode" styleClass="error" />
 		</div>
 		<div>
-			<h:imputHidden value="#{addressController.customer}" 
-		</div>
-		<div>
 			<h:commandButton value="Submit"	action="#{addressController.createAddress}" />
 		</div>
 		</h:form>

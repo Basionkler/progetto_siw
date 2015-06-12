@@ -24,7 +24,7 @@ public class AddressController {
 	private AddressFacade addressFacade;
 
 	public String createAddress() {
-		this.address = addressFacade.createAddress(street, city, state, zipCode, country, customer);
+		this.address = addressFacade.createAddress(street, city, state, zipCode, country);
 		return "customer"; 
 	}
 

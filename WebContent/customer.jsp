@@ -12,7 +12,6 @@
 			<h2>Details</h2>
 			<div>Data di Nascita: ${customerController.customer.dateOfBirth}</div>
 			<div>Data di Registrazione: ${customerController.customer.registrationDate}</div>
-			<div>Indirizzo: ${customerController.customer.address }</div>
 		</f:view>
 	</body>
 </html>

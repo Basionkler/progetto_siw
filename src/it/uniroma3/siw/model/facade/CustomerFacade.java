@@ -30,8 +30,9 @@ public class CustomerFacade {
 	}
 
 	public Customer getCustomer(String email) {
-		Customer customer = em.find(Customer.class, email);
-		return customer;
+		TypedQuery<Customer> query = em.createNamedQuery("findCustomerByEmail", Customer.class);
+		query.setParameter("email", email);
+		return query.getSingleResult();
 	}
 
 	public boolean controllaPassword(Customer c, String password) {

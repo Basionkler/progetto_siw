@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 public class AddressFacade {
 	
 	 @PersistenceContext(unitName = "aFacade")
-	    private EntityManager em;
+	 private EntityManager em;
 
 	 public Address createAddress(String street, String city, String state, String zipCode, String country){
 		 Address a = new Address(street, city, state, zipCode, country);

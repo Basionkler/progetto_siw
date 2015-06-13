@@ -11,7 +11,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.*;
 
-@Stateless(name = "uFacade")
+@Stateless
 public class CustomerFacade {
 	
 	@PersistenceContext(unitName = "userFacade")

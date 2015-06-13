@@ -20,6 +20,7 @@ public class CustomerFacade {
 	public Customer createCustomer(String firstName, String lastName, String email, String password, Date dateOfBirth, Address address, List<Order> orders) {
 		Date registrationDate = Calendar.getInstance().getTime();
 		Customer c = new Customer(firstName, lastName, email, password, dateOfBirth, registrationDate, address, orders);
+		em.persist(c);
 		return c;
 
 	}

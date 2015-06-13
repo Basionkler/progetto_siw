@@ -15,7 +15,8 @@ public class AddressFacade {
 	 private EntityManager em;
 
 	 public Address createAddress(String street, String city, String state, String zipCode, String country){
-		 Address a = new Address(street, city, state, zipCode, country);
+		Address a = new Address(street, city, state, zipCode, country);
+		em.persist(a);
 		return a;
 	 }
 	 

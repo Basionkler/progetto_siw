@@ -11,7 +11,7 @@
 <f:view>
 	<h:form>
 		<div>
-    		<h:outputLabel />Name:
+    		<h:outputLabel value="Nome:"/>
 	    	<h:inputText value="#{customerController.firstName}"
     			required="true"
 				requiredMessage="Il nome è obligatorio" id="firstname">
@@ -19,7 +19,7 @@
 			<h:message for="name" styleClass="error" />
 		</div>
 		<div>
-    		<h:outputLabel />Cognome:
+    		<h:outputLabel value="Cognome:"/>
     		<h:inputText value="#{customerController.lastName}"
     			required="true"
 				requiredMessage="Il cognome è obligatorio" id="lastname">
@@ -27,7 +27,7 @@
 			<h:message for="lastname" styleClass="error" />
 		</div>
 		<div>
- 			<h:outputLabel />Email
+ 			<h:outputLabel value="Email:"/>
     		<h:inputText value="#{customerController.email}"
     			required="true"
 				requiredMessage="la mail è obligatoria"
@@ -38,7 +38,7 @@
 			<h:message for="email" styleClass="error" />
 		</div>
 		<div>
- 			<h:outputLabel />Password:
+ 			<h:outputLabel value="Password:"/>
     		<h:inputText value="#{customerController.password}"
     			required="true"
 				requiredMessage="la password è obligatoria"
@@ -49,7 +49,7 @@
 			<h:message for="password" styleClass="error" />
 		</div>
 		<div>
-		<h:outputLabel />Data di Nascita:
+		<h:outputLabel value="Data di Nascita:"/>
 		<h:inputText value = "#{customerController.dateOfBirth}"
 				required = "true"
 				requiredMessage="la data di nascita è obbligatoria"
@@ -59,7 +59,7 @@
 		</h:inputText>
 		</div>
 		<div>
-			<h:outputLabel />Via:
+			<h:outputLabel value="Via:"/>
 			<h:inputText value="#{customerController.address.street}"
 				required="true"
 				requiredMessage="la via è obligatoria"
@@ -70,7 +70,7 @@
 			<h:message for="street" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel />city:
+			<h:outputLabel value="Città:"/>
 			<h:inputText value="#{customerController.address.city}"
 				required="true"
 				requiredMessage="la città è obligatoria"
@@ -79,7 +79,7 @@
 			<h:message for="city" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel />state:
+			<h:outputLabel value="State:"/>state:
 			<h:inputText value="#{customerController.address.state}"
 				required="true"
 				requiredMessage="lo stato è obligatorio"
@@ -88,7 +88,7 @@
 			<h:message for="state" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel />zipCode:
+			<h:outputLabel value="Cap:"/>
 			<h:inputText value="#{customerController.address.zipCode}"
 				required="true"
 				requiredMessage="lo zipCode è obligatorio"

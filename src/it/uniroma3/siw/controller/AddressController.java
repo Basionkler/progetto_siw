@@ -7,7 +7,7 @@ import it.uniroma3.siw.model.facade.AddressFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name="aController")
+@ManagedBean(name="addressController")
 public class AddressController {
 
 	private Long id;

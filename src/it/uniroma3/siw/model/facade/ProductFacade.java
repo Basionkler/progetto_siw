@@ -9,10 +9,10 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import java.util.List;
 
-@Stateless
+@Stateless(name="productFacade")
 public class ProductFacade {
 	
-    @PersistenceContext(unitName = "productFacade")
+    @PersistenceContext(unitName = "prodFacade")
     private EntityManager em;
     
 	public Product createProduct(String name, String code, Float price, String description) {

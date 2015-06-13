@@ -39,7 +39,7 @@
 		</div>
 		<div>
  			<h:outputLabel value="Password:"/>
-    		<h:inputText value="#{customerController.password}"
+    		<h:inputSecret value="#{customerController.password}"
     			required="true"
 				requiredMessage="la password è obligatoria"
 				validatorMessage="la password deve essere lungo almeno 6 caratteri"
@@ -79,7 +79,7 @@
 			<h:message for="city" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel value="State:"/>state:
+			<h:outputLabel value="Stato:"/>
 			<h:inputText value="#{customerController.address.state}"
 				required="true"
 				requiredMessage="lo stato è obligatorio"

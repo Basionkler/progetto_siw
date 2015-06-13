@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Stateless
 public class CustomerFacade {
 	
-	@PersistenceContext(unitName = "userFacade")
+	@PersistenceContext(unitName = "customerFacade")
 	private EntityManager em;
 	
 	public Customer createCustomer(String firstName, String lastName, String email, String password, Date dateOfBirth, Address address, List<Order> orders) {
@@ -22,7 +22,6 @@ public class CustomerFacade {
 		Customer c = new Customer(firstName, lastName, email, password, dateOfBirth, registrationDate, address, orders);
 		em.persist(c);
 		return c;
-
 	}
 	
 	public Customer getCustomer(Long id){

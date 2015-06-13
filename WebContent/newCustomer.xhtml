@@ -31,21 +31,19 @@
     		<h:inputText value="#{customerController.email}"
     			required="true"
 				requiredMessage="la mail è obligatoria"
-				validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
 				id="email">
-				<f:validateLength minimum="6" maximum="10" />
 			</h:inputText>
 			<h:message for="email" styleClass="error" />
 		</div>
 		<div>
- 			<h:outputLabel value="Password:" />
+ 			<h:outputLabel value="Password:"/>
     		<h:inputSecret value="#{customerController.password}"
     			required="true"
 				requiredMessage="la password è obligatoria"
 				validatorMessage="la password deve essere lungo almeno 6 caratteri"
 				id="password">
 				<f:validateLength minimum="6" maximum="100" />
-			</h:inputSecret>
+			</h:inputText>
 			<h:message for="password" styleClass="error" />
 		</div>
 		<div>

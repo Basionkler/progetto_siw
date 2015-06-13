@@ -1,11 +1,10 @@
 package it.uniroma3.siw.controller;
 
-
-import java.util.List;
-
 import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.ProductFacade;
 
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.*;
 

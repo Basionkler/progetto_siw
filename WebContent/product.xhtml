@@ -3,10 +3,10 @@
 		 xmlns:f="http://java.sun.com/jsf/core"
 		 xmlns:h="http://java.sun.com/jsf/html">
 
-	<head>
-		<title>Product</title>
-	</head>
-	<body>
+	<h:head>
+		<h:title>Product</h:title>
+	</h:head>
+	<h:body>
 		<f:view>
 			<h1>${productController.product.name}</h1>
 			<h2>Details</h2>
@@ -14,5 +14,5 @@
 			<div>Price: ${productController.product.price}</div>
 			<div>Description: ${productController.product.description}</div>
 		</f:view>
-	</body>
+	</h:body>
 </html>

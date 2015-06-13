@@ -36,7 +36,7 @@ public class CustomerController {
 
 	public String login() {
 		this.customer = customerFacade.getCustomer(this.email);
-		if(this.customer!=null && customerFacade.controllaPassword(c,this.password)){
+		if(this.customer!=null && customerFacade.controllaPassword(customer,this.password)){
 			return "welcome";
 		} else {
 			return "error";

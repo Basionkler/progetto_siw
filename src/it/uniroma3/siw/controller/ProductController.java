@@ -7,8 +7,8 @@ import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.ProductFacade;
 
 import javax.ejb.EJB;
-import javax.faces.bean.*;
-
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 @ManagedBean(name="productController")
 public class ProductController {
@@ -23,7 +23,7 @@ public class ProductController {
 	private List<Product> products;
 	
 	@EJB(beanName="productFacade")
-	ProductFacade productFacade;
+	private ProductFacade productFacade;
 	
 	public String createProduct() {
 		this.product = productFacade.createProduct(name, code, price, description);

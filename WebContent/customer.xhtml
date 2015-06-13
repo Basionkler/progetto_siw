@@ -3,10 +3,10 @@
 		xmlns:f="http://java.sun.com/jsf/core"
     	xmlns:h="http://java.sun.com/jsf/html">
 
-	<head>
-		<title>Cliente</title>
-	</head>
-	<body>
+	<h:head>
+		<h:title>Cliente</h:title>
+	</h:head>
+	<h:body>
 		<f:view>
 			<h1>${customerController.customer.firstName}</h1>
 			<h1>${customerController.customer.lastName}</h1>
@@ -16,5 +16,5 @@
 			<div>Data di Registrazione: ${customerController.customer.registrationDate}</div>
 			<div>Indirizzo: ${customerController.customer.address }</div>
 		</f:view>
-	</body>
+	</h:body>
 </html>

@@ -25,6 +25,10 @@
 		        <h:inputSecret value="#{cController.password}" />
 		        <h:commandButton value="Login" action="#{cController.login}"/>
 	  		</h:panelGrid>
+	  		<h:panelGrid>
+	  			<h:outputLabel value="Registrati!" style="fonr-weight:bold" />
+	  			<h:commandButton value = "Registrati" action="newCustomer" />
+	  		</h:panelGrid>
 	    </h:form>
     </div>
 </h:body>

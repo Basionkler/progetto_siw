@@ -11,7 +11,7 @@
 <f:view>
 <h:form>
 	<div>
-    	Name:
+    	<h:outputLabel />Name:
     	<h:inputText value="#{productController.name}"
     		required="true"
 			requiredMessage="Il nome è obligatorio" id="name">
@@ -19,7 +19,7 @@
 		<h:message for="name" styleClass="error" />
 	</div>
 	<div>
- 		Code:
+ 		<h:outputLabel />Code:
     	<h:inputText value="#{productController.code}"
     		required="true"
 			requiredMessage="Il Codice è obligatorio"
@@ -30,7 +30,7 @@
 		<h:message for="code" styleClass="error" />
 	</div>
 	<div>
-		Price:
+		<h:outputLabel />Price:
 		<h:inputText value="#{productController.price}"
 			required="true"
 			requiredMessage="Il prezzo è obligatorio"
@@ -41,7 +41,7 @@
 		<h:message for="price" styleClass="error" />
 	</div>
 	<div>
-		Description:
+		<h:outputLabel />Description:
 		<h:inputText value="#{productController.description}" required="false">
 		</h:inputText>
 		<h:commandButton value="Submit"	action="#{productController.createProduct}" />

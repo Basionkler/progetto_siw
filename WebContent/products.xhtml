@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html 	xmlns="http://www.w3.org/1999/xhtml"
 		 xmlns:f="http://java.sun.com/jsf/core"
-		 xmlns:h="http://java.sun.com/jsf/html">
-	<head>
+		 xmlns:h="http://java.sun.com/jsf/html"
+		 xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-		<title>Products</title>
-	</head>
-	<body>
+		<h:title>Products</h:title>
+	</h:head>
+	<h:body>
 		<f:view>
 			<h1>Products</h1>
 			<h:form>
@@ -14,15 +15,15 @@
 					<tr>
 						<th>Name</th><th>Price</th>
 					</tr>
-					<c:forEach var="product" items="#{productController.products}">
+					<ui:repeat var="product" items="#{productController.products}">
 						<tr><td>
 							<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
 								<f:param name="id" value="#{product.id}" />
 							</h:commandLink>
 						</td><td>${product.price}</td></tr>
-					</c:forEach>
+					</ui:repeat>
 				</table>
 			</h:form>
 		</f:view>
-	</body>
+	</h:body>
 </html>

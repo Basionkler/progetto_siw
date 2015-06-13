@@ -27,7 +27,7 @@ public class CustomerController {
     private Customer customer;
     
     @EJB
-	private CustomerFacade customerFacade;
+	CustomerFacade customerFacade;
     
     public String createCustomer() {
 		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, address, orders);

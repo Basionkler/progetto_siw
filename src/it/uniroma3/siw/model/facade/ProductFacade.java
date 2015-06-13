@@ -12,7 +12,7 @@ import java.util.List;
 @Stateless
 public class ProductFacade {
 	
-    @PersistenceContext(unitName = "pFacade")
+    @PersistenceContext(unitName = "productFacade")
     private EntityManager em;
     
 	public Product createProduct(String name, String code, Float price, String description) {

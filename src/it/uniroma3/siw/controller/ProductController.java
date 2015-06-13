@@ -103,6 +103,10 @@ public class ProductController {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+
+	public void setProductFacade(ProductFacade productFacade) {
+		this.productFacade = productFacade;
+	}
 }
 
 

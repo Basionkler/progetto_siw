@@ -22,7 +22,7 @@ public class CustomerController {
     private String password;
     private Date dateOfBirth;
     private Date registrationDate;
-    private Address address;
+    private Address address = new Address();
     private List<Order> orders;
     private Customer customer;
     
@@ -31,7 +31,7 @@ public class CustomerController {
     
     public String createCustomer() {
 		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, address, orders);
-		return "customer"; 
+		return "customer";
 	}
 
 	public String login() {

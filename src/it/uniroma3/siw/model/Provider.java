@@ -10,7 +10,7 @@ public class Provider {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long provider_id;
 
     @Column(nullable = false)
     private String name;
@@ -27,17 +27,21 @@ public class Provider {
     @OneToOne
     private Address address;
 
-    @ManyToMany
-    private List<Product> products;
+    /*
+    @JoinTable(name="providers2products", 
+    		joinColumns = @JoinColumn(name="provider_id"), 
+    		inverseJoinColumns = @JoinColumn(name="product_id"))
+    @ManyToMany(targetEntity = it.uniroma3.siw.model.Product.class)
+    private List<Product> products = new ArrayList<Product>();*/
 
     
     //Getter&Setter
 	public Long getId() {
-		return id;
+		return provider_id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.provider_id = id;
 	}
 
 	public String getName() {
@@ -80,6 +84,7 @@ public class Provider {
 		this.address = address;
 	}
 
+	/* 
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -87,5 +92,5 @@ public class Provider {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
+	*/
 }

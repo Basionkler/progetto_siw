@@ -26,13 +26,13 @@ public class Product {
 	private String code;
 
 	@Column(nullable = true)
-	@OneToOne(mappedBy = "tb_product")
+	@OneToOne
 	private OrderLine orderLine;
 
-	@Column(nullable = true)
-	@ManyToMany(mappedBy = "tb_product")
-	private List<Provider> providers;
 
+	/*@Column(nullable = true)
+	@ManyToMany(targetEntity = it.uniroma3.siw.model.Provider.class, mappedBy = "products")
+	private List<Provider> providers;*/
 	//Costruttore
 
 	public Product() {
@@ -43,6 +43,7 @@ public class Product {
         this.price = price;
         this.description = description;
         this.code = code;
+       // this.providers = new ArrayList<Provider>();
 }
 
 
@@ -97,6 +98,7 @@ public class Product {
 		this.orderLine = orderLine;
 	}
 
+	/*
 	public List<Provider> getProviders() {
 		return providers;
 	}
@@ -104,7 +106,7 @@ public class Product {
 	public void setProviders(List<Provider> providers) {
 		this.providers = providers;
 	}
-
+	*/
 	@Override
 	public String toString() {
 		return "[name=" + name + ", description=" + description

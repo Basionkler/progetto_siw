@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /* Classe temporanea, valutarne l'utilizzo */
@@ -27,7 +28,7 @@ public class ProductCatalogue {
 	private Date creationDate;
 	
 	@Column(nullable=true)
-	@ManyToMany(targetEntity= Product.class, fetch = FetchType.EAGER, mappedBy="tb_product_catalogue")
+	@OneToMany(targetEntity= Product.class, fetch = FetchType.EAGER)
 	List<Product> productList;
 	
 	/* TODO Variabile d'istanza admin? o controllo sui diritti di modifica (Se utente è admin, puoModificare = true)?*/
@@ -37,7 +38,7 @@ public class ProductCatalogue {
 	public ProductCatalogue(Date creationDate, List<Product> productList) {
 		
 		this.creationDate = creationDate;
-		//this.productList = productList;
+		this.productList = productList;
 		
 	}
 	
@@ -60,7 +61,7 @@ public class ProductCatalogue {
 	}
 
 	public void setProductList(List<Product> productList) {
-		//this.productList = productList;
+		this.productList = productList;
 	}
 
 	@Override

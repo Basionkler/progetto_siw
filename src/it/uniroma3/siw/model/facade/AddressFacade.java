@@ -14,8 +14,8 @@ public class AddressFacade {
 	 @PersistenceContext(unitName = "products-unit")
 	 private EntityManager em;
 
-	 public Address createAddress(String street, String city, String state, String zipCode, String country){
-		Address a = new Address(street, city, state, zipCode, country);
+	 public Address createAddress(String street, String city, String state, String zipCode){
+		Address a = new Address(street, city, state, zipCode);
 		em.persist(a);
 		return a;
 	 }

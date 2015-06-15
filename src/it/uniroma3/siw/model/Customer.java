@@ -28,10 +28,10 @@ public class Customer{
 	@Column(nullable = false)
 	private String password;
 	
-	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 
-	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date registrationDate;
 	
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})

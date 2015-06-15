@@ -1,11 +1,13 @@
  package it.uniroma3.siw.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import it.uniroma3.siw.model.Address;
 import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
+import it.uniroma3.siw.model.facade.AddressFacade;
 import it.uniroma3.siw.model.facade.CustomerFacade;
 
 import javax.ejb.EJB;
@@ -16,21 +18,32 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class CustomerController {
 	
+	/* Address Creator */
+	private String street;
+	private String city;
+	private String state;
+	private String zipCode;
+	
+	/* Customer Creator */
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private Date dateOfBirth;
     private Date registrationDate;
-    private Address address = new Address();
+    private Address address;
     private List<Order> orders;
     private Customer customer;
     
     @EJB(beanName = "customerFacade")
 	private CustomerFacade customerFacade;
     
+    @EJB(beanName = "addressFacade")
+    private AddressFacade addressFacade;
+    
     public String createCustomer() {
-		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, address, orders);
+    	this.address = addressFacade.createAddress(street, city, state, zipCode);
+		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, address, new ArrayList<>());
 		return "customer";
 	}
 
@@ -131,5 +144,37 @@ public class CustomerController {
 
 	public void setCustomerFacade(CustomerFacade customerFacade) {
 		this.customerFacade = customerFacade;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 }

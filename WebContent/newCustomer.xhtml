@@ -57,8 +57,8 @@
 		</h:inputText>
 		</div>
 		<div>
-			<h:outputLabel value="Via:"/>
-			<h:inputText value="#{customerController.address.street}"
+			<h:outputLabel />Via:
+			<h:inputText value="#{customerController.street}" 
 				required="true"
 				requiredMessage="la via è obligatoria"
 				validatorMessage="la via deve essere lunga almeno 6 caratteri"
@@ -68,8 +68,8 @@
 			<h:message for="street" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel value="Città:"/>
-			<h:inputText value="#{customerController.address.city}"
+			<h:outputLabel />city:
+			<h:inputText value="#{customerController.city}"
 				required="true"
 				requiredMessage="la città è obligatoria"
 				id="city">
@@ -77,8 +77,8 @@
 			<h:message for="city" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel value="Stato:"/>
-			<h:inputText value="#{customerController.address.state}"
+			<h:outputLabel />state:
+			<h:inputText value="#{customerController.state}"
 				required="true"
 				requiredMessage="lo stato è obligatorio"
 				id="state">
@@ -86,8 +86,8 @@
 			<h:message for="state" styleClass="error" />
 		</div>
 		<div>
-			<h:outputLabel value="Cap:"/>
-			<h:inputText value="#{customerController.address.zipCode}"
+			<h:outputLabel />zipCode:
+			<h:inputText value="#{customerController.zipCode}"
 				required="true"
 				requiredMessage="lo zipCode è obligatorio"
 				validatorMessage="lo zipCode deve essere lunga 5 caratteri"

@@ -18,7 +18,7 @@ public class CustomerFacade {
 	private EntityManager em;
 	
 	public Customer createCustomer(String firstName, String lastName, String email, String password, Date dateOfBirth, Address address, List<Order> orders) {
-		Date registrationDate = Calendar.getInstance().getTime();
+		Date registrationDate = new Date();
 		Customer c = new Customer(firstName, lastName, email, password, dateOfBirth, registrationDate, address, orders);
 		em.persist(c);
 		return c;

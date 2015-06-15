@@ -23,9 +23,6 @@ public class Address {
     @Column(nullable = false)
     private String zipCode;
 
-    @Column(nullable = false)
-    private String country;
-
     @OneToOne
     private Customer customer;
 
@@ -37,12 +34,11 @@ public class Address {
     public Address() {		
 	}
     
-    public Address(String street, String city, String state, String zipCode, String country) {
+    public Address(String street, String city, String state, String zipCode) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
-		this.country = country;
 	}
     
 //getter & setter
@@ -61,10 +57,6 @@ public class Address {
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public void setCustomer(Customer customer) {
@@ -93,10 +85,6 @@ public class Address {
 
 	public String getZipCode() {
 		return zipCode;
-	}
-
-	public String getCountry() {
-		return country;
 	}
 
 	public Customer getCustomer() {

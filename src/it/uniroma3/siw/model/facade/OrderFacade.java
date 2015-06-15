@@ -1,7 +1,8 @@
 package it.uniroma3.siw.model.facade;
 
-import java.util.Calendar;
+import java.util.Date;
 
+import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
 
 import javax.ejb.Stateless;
@@ -14,21 +15,20 @@ public class OrderFacade {
 	@PersistenceContext(unitName ="products-unit")
 	private EntityManager em;
 	
-	public Order createOrder() {
-		Order order = new Order();
-		order.setCreationDate(Calendar.getInstance().getTime());
+	public Order createOrder(Customer c) {
+		Order order = new Order(c);
 		em.persist(order);
 		return order;
 	}
 	
 	public Order closeOrder(Order o) {
-		o.setClosingDate(Calendar.getInstance().getTime());
+		o.setClosingDate(new Date());
 		em.persist(o);
 		return o;
 	}
 	
 	public Order evadeOrder(Order o) {
-		o.setProcessingDate(Calendar.getInstance().getTime());
+		o.setProcessingDate(new Date());
 		em.persist(o);
 		return o;
 	}

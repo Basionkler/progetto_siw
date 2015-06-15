@@ -25,6 +25,21 @@ public class Order {
 
 	@OneToMany(fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	private List<OrderLine> orderLines;
+	
+	
+	public Order(Customer c) {
+		this.customer = c;
+		this.creationDate = new Date();
+		this.orderLines = new ArrayList<>();
+	}
+	
+	public double getTotal() {
+		double tot = 0d;
+		for(OrderLine ol : this.orderLines) {
+			tot += ol.getSubTotal();
+		}
+		return tot;
+	}
 
 	//Getter&Setter
 	public Long getId() {

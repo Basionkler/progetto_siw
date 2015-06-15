@@ -22,6 +22,16 @@ public class OrderLine {
 
 	@OneToOne
 	private Product product;
+	
+	public OrderLine(Integer quantity, Product product) {
+		this.quantity = quantity;
+		this.product = product;
+		this.unitPrice = product.getPrice();
+	}
+	
+	public double getSubTotal() {
+		return unitPrice*quantity;
+	}
 
 	public Long getId() {
 		return id;

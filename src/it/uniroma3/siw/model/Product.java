@@ -25,10 +25,12 @@ public class Product {
 	@Column(nullable = false)
 	private String code;
 
-	@OneToOne(mappedBy = "product")
+	@Column(nullable = true)
+	@OneToOne(mappedBy = "tb_product")
 	private OrderLine orderLine;
 
-	@ManyToMany(mappedBy = "product")
+	@Column(nullable = true)
+	@ManyToMany(mappedBy = "tb_product")
 	private List<Provider> providers;
 
 	//Costruttore

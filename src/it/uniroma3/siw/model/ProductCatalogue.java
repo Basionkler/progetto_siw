@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,8 @@ public class ProductCatalogue {
 	@Column(nullable = false)
 	private Date creationDate;
 	
-	@ManyToMany(mappedBy = "product_catalogue")
+	@Column(nullable=true)
+	@ManyToMany(targetEntity= Product.class, fetch = FetchType.EAGER, mappedBy="tb_product_catalogue")
 	List<Product> productList;
 	
 	/* TODO Variabile d'istanza admin? o controllo sui diritti di modifica (Se utente è admin, puoModificare = true)?*/
@@ -35,7 +37,7 @@ public class ProductCatalogue {
 	public ProductCatalogue(Date creationDate, List<Product> productList) {
 		
 		this.creationDate = creationDate;
-		this.productList = productList;
+		//this.productList = productList;
 		
 	}
 	
@@ -58,7 +60,7 @@ public class ProductCatalogue {
 	}
 
 	public void setProductList(List<Product> productList) {
-		this.productList = productList;
+		//this.productList = productList;
 	}
 
 	@Override

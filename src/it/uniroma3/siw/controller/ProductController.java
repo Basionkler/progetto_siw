@@ -24,7 +24,6 @@ public class ProductController {
 	private ProductFacade productFacade;
 	
 	public String createProduct() {
-		if(productFacade == null) productFacade = new ProductFacade();
 		this.product = productFacade.createProduct(name, code, price, description);
 		return "product"; 
 	}

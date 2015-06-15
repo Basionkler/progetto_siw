@@ -4,7 +4,6 @@ import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.ProductFacade;
 
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -25,6 +24,7 @@ public class ProductController {
 	private ProductFacade productFacade;
 	
 	public String createProduct() {
+		if(productFacade == null) productFacade = new ProductFacade();
 		this.product = productFacade.createProduct(name, code, price, description);
 		return "product"; 
 	}

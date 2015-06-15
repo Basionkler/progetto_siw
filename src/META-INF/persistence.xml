@@ -9,7 +9,7 @@
 		<class>model.Customer</class>
 		<class>model.OrderLine</class>
 		<class>model.Order</class>
-		<class>model.Product</class>
+		<class>it.uniroma3.siw.model.Product</class>
 		<class>model.Provider</class>
 		<class>model.ProductCatalogue</class>
 		<class>model.Admin</class>

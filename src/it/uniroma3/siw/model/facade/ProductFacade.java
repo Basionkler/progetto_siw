@@ -10,9 +10,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 @Stateless(name="productFacade")
-public class ProductFacade {
+public class ProductFacade{
 	
-    @PersistenceContext(unitName = "prodFacade")
+    @PersistenceContext(unitName = "products-unit")
     private EntityManager em;
     
 	public Product createProduct(String name, String code, Float price, String description) {
@@ -37,7 +37,7 @@ public class ProductFacade {
         em.merge(product);
 	}
 	
-    private void deleteProduct(Product product) {
+    public void deleteProduct(Product product) {
         em.remove(product);
     }
 

@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Stateless(name = "customerFacade")
 public class CustomerFacade {
 	
-	@PersistenceContext(unitName = "customerFacade")
+	@PersistenceContext(unitName = "products-unit")
 	private EntityManager em;
 	
 	public Customer createCustomer(String firstName, String lastName, String email, String password, Date dateOfBirth, Address address, List<Order> orders) {

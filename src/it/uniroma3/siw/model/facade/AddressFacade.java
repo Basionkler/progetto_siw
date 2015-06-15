@@ -8,10 +8,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 
-@Stateless
+@Stateless(name="addressFacade")
 public class AddressFacade {
 	
-	 @PersistenceContext(unitName = "aFacade")
+	 @PersistenceContext(unitName = "products-unit")
 	 private EntityManager em;
 
 	 public Address createAddress(String street, String city, String state, String zipCode, String country){

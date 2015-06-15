@@ -17,7 +17,7 @@ import javax.persistence.Table;
 /* Classe temporanea, valutarne l'utilizzo */
 @Entity
 @Table(name="tb_product_catalogue")
-@NamedQuery(name = "findAllCatalogue", query = "SELECT pc FROM tb_product_catalogue pc")
+@NamedQuery(name = "findAllCatalogue", query = "SELECT pc FROM ProductCatalogue pc")
 public class ProductCatalogue {
 	
 	@Id

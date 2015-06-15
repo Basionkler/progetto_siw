@@ -5,7 +5,7 @@ import java.util.*;
 
 @Entity
 @Table(name="tb_product")
-@NamedQuery(name = "findAllProducts", query = "SELECT p FROM tb_product p")
+@NamedQuery(name = "findAllProducts", query = "SELECT p FROM Product p")
 public class Product {
 
 	@Id

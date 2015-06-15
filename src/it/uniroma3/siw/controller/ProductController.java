@@ -29,8 +29,9 @@ public class ProductController {
 	}
 	
 	public String listProducts() {
+		
 		this.products = productFacade.getAllProducts();
-		return "products"; 
+		return "customerProfile"; 
 	}
 
 	public String findProduct() {
@@ -42,7 +43,6 @@ public class ProductController {
 		this.product = productFacade.getProduct(id);
 		return "product";
 	}
-
 	
 //Getter&Setter
 	
@@ -104,6 +104,11 @@ public class ProductController {
 
 	public void setProductFacade(ProductFacade productFacade) {
 		this.productFacade = productFacade;
+	}
+	
+	public int getSize() {
+		if (this.products == null) return 0;
+		return this.products.size();
 	}
 }
 

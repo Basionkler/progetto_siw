@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome</title>
+</h:head>
+<h:body>
+	<h3>Welcome to JavaServer Faces,
+		#{customerController.customer.firstName}!</h3>
+	<h:form>
+		<h:commandButton value="Visualizza lista prodotti!"
+			action="#{productController.listProducts}" />
+			${productController.size}
+		<div>
+		<table><tr><th>Nome</th><th>Prezzo</th></tr>
+			<ui:repeat var="product" value="#{productController.products}">
+				<tr>
+					<td><h:commandLink action="#{productController.findProduct}"
+							value="#{product.name}">
+							<f:param name="id" value="#{product.id}" />
+						</h:commandLink></td>
+					<td>${product.price}</td>
+				</tr>
+			</ui:repeat>
+		</table>
+		</div>
+	</h:form>
+</h:body>
+</html>

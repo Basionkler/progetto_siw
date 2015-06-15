@@ -51,7 +51,7 @@ public class CustomerController {
 		this.customer = customerFacade.getCustomer(this.email);
 
 		if(this.customer!=null && customerFacade.controllaPassword(this.customer,this.password)){
-			return "welcome";
+			return "customerProfile";
 		} else {
 			return "error";
 		}

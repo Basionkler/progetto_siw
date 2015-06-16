@@ -31,7 +31,7 @@ public class ProductController {
 	public String listProducts() {
 		
 		this.products = productFacade.getAllProducts();
-		return "customerProfile"; 
+		return "products"; 
 	}
 
 	public String findProduct() {

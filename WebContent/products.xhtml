@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		 xmlns:f="http://java.sun.com/jsf/core"
-		 xmlns:h="http://java.sun.com/jsf/html"
-		 xmlns:c="http://java.sun.com/jsp/jstl/core"
-		 xmlns:ui="http://java.sun.com/jsf/facelets">
-	<h:head>
-		<h:title>Products</h:title>
-	</h:head>
-	<h:body>
-		<f:view>
-			<h1>Products</h1>
-			<h:form>
-				<table>
-					<tr>
-						<th>Name</th><th>Price</th>
-					</tr>
-					<c:forEach var="product" items="#{productController.products}">
-						<tr><td>
-							<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
-								<f:param name="id" value="#{product.id}" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" />
+	<h:title value="Products" />
+</h:head>
+<h:body>
+		<h1>Products</h1>
+		<h:form class="form-inline" role="form">
+			<table class="table table-hover" style="width: 60%">
+				<tr class="info">
+					<th>Name</th>
+					<th>Price</th>
+				</tr>
+				<c:forEach var="product" items="#{productController.products}">
+					<tr class="info">
+						<td><h:commandLink action="#{productController.findProduct}"
+								value="#{product.name}"><f:param name="id" value="#{product.id}" />
 							</h:commandLink>
-						</td><td>${product.price}</td></tr>
-					</c:forEach>
-				</table>
-			</h:form>
-		</f:view>
-	</h:body>
+						</td>
+						<td>${product.price}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</h:form>
+		<h:commandButton class="btn btn-primary" value="Torna all'index!" action="index" />
+</h:body>
 </html>

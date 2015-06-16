@@ -2,7 +2,10 @@ package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
+import it.uniroma3.siw.model.OrderLine;
+import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.OrderFacade;
+import it.uniroma3.siw.model.facade.ProductFacade;
 
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -14,19 +17,27 @@ import javax.ejb.SessionContext;
 @SessionScoped
 public class OrderController {
 	
-	private Order order;
-	
+	private Order ordineCorrente;
+	private Integer quantitaProdottoCorrente;
+	private Product prodottoCorrente;
 	private Customer c;
+	
+	@EJB(beanName="productFacade")
+	private OrderFacade orderFacade;
 	
 	@Resource
 	private SessionContext context;
-	
-	@EJB(beanName="orderFacade")
-	private OrderFacade orderFacade;
+
 	
 	public String createOrder() {
-		this.order = orderFacade.createOrder(c);
+		this.ordineCorrente = orderFacade.createOrder(c);
 		return "order";
+	}
+	
+	public String addProduct(){
+		this.ordineCorrente.getOrderLines().add(orderFacade.CreaLineOrdine(this.prodottoCorrente,this.quantitaProdottoCorrente));
+		orderFacade.updateOrder(this.ordineCorrente);
+		return null;
 	}
 	
 

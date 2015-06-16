@@ -4,6 +4,8 @@ import java.util.Date;
 
 import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
+import it.uniroma3.siw.model.OrderLine;
+import it.uniroma3.siw.model.Product;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -37,7 +39,13 @@ public class OrderFacade {
 		Order order = em.find(Order.class, id);
 		return order;
 	}
-	
-	
+
+	public OrderLine CreaLineOrdine(Product prodottoCorrente, Integer quantitaProdottoCorrente) {
+		return new OrderLine(quantitaProdottoCorrente, prodottoCorrente);
+	}
+
+	public void updateOrder(Order order) {
+		em.merge(order);		
+	}	
 
 }

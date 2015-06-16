@@ -9,7 +9,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="adminController")
 @SessionScoped
-public class AdminController extends LoginController{
+public class AdminController{
 	
 	private String nickname;
     private String email;
@@ -23,6 +23,15 @@ public class AdminController extends LoginController{
 	public String createAdmin() {
 		this.admin = adminFacade.createAdmin(nickname, email, password);
 		return "adminProfile";
+	}
+
+	public String login() {
+		this.admin = adminFacade.getAdminByEmail(this.email);
+		if(this.admin!=null && adminFacade.controllaPassword(this.admin,this.password)){
+			return "adminProfile";
+		} else {
+			return "error";
+		}
 	}
 
 	public String getNickname() {

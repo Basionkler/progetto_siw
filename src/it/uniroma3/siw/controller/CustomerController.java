@@ -16,7 +16,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="customerController")
 @SessionScoped
-public class CustomerController extends LoginController{
+public class CustomerController{
 	
 	/* Address Creator */
 	private String street;
@@ -25,6 +25,8 @@ public class CustomerController extends LoginController{
 	private String zipCode;
 	
 	/* Customer Creator */
+	protected String email;
+	protected String password;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
@@ -43,6 +45,15 @@ public class CustomerController extends LoginController{
     	this.address = addressFacade.createAddress(street, city, state, zipCode);
 		this.customer = customerFacade.createCustomer(firstName, lastName, email, password, dateOfBirth, address, new ArrayList<>());
 		return "customer";
+	}
+    
+	public String login() {
+		this.customer = customerFacade.getCustomer(this.email);
+		if(this.customer!=null && customerFacade.controllaPassword(this.customer,this.password)){
+			return "customerProfile";
+		} else {
+			return "error";
+		}
 	}
 
 //Getter&Setter    
@@ -157,5 +168,13 @@ public class CustomerController extends LoginController{
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+
+	public AddressFacade getAddressFacade() {
+		return addressFacade;
+	}
+
+	public void setAddressFacade(AddressFacade addressFacade) {
+		this.addressFacade = addressFacade;
 	}
 }

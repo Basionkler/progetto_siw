@@ -25,13 +25,11 @@
 			<!-- Da implementare il controllo sull'utente -->
 			<h:panelGrid>
 				<h:outputLabel value="Email: " style="font-weight:bold" />
-				<h:inputText value="#{loginController.email}" />
+				<h:inputText value="#{customerController.email}" />
 				<h:outputLabel value="Password: " style="font-weight:bold" />
-				<h:inputSecret value="#{loginController.password}" />
+				<h:inputSecret value="#{customerController.password}" />
 				<h:commandButton value="LoginUtente"
-					action="#{loginController.userLogin}" />
-				<h:commandButton value="LoginAdmin"
-					action="#{loginController.adminLogin}" />
+					action="#{customerController.login}" />
 			</h:panelGrid>
 			<br />
 			<h:panelGrid>
@@ -40,7 +38,19 @@
 			</h:panelGrid>
 		</h:form>
 	</div>
-
+	<div class="container" align="right" 
+		style="position: relative">
+		<h:form>
+			<h:panelGrid>
+				<h:outputLabel value="Email: " style="font-weight:bold" />
+				<h:inputText value="#{adminController.email}" />
+				<h:outputLabel value="Password: " style="font-weight:bold" />
+				<h:inputSecret value="#{adminController.password}" />
+				<h:commandButton value="LoginAdmin"
+					action="#{adminController.login}" />
+			</h:panelGrid>
+		</h:form>
+	</div>
 	<h:form>
 		<h:commandButton value="Visualizza lista prodotti!"
 			action="#{productController.listProducts}" />

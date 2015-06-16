@@ -1,46 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:f="http://java.sun.com/jsf/core"
-    	xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <h:title>Welcome</h:title>
-    
-    <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<h:title>Welcome</h:title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"></link>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	    
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </h:head>
 <h:body>
 	<div class="container">
-	    <h:form>
-	    	<!-- Da implementare il controllo sull'utente -->
-	        <h:panelGrid>
-		        <h:outputLabel value="Email: " style="font-weight:bold" />
-		        <h:inputText value="#{customerController.email}" />
-		        <h:outputLabel value="Password: " style="font-weight:bold" />
-		        <h:inputSecret value="#{customerController.password}" />
-		        <h:commandButton value="Login" action="#{customerController.login}"/>
-	  		</h:panelGrid><br />
-	  		<h:panelGrid>
-	  			<h:outputLabel value="Registrati!" style="fonr-weight:bold" />
-	  			<h:commandButton value = "Registrati" action="newCustomer" />
-	  		</h:panelGrid>
-	    </h:form>
-    </div>
-    <div class="container" align="right" style="position:absolute">
-    	<h:form>
-    		<h:panelGrid>
-    		<h:outputLabel value = "Email: " style="font-weight:bold" />
-    		<h:inputText value="#{adminController.email}" />
-    	    <h:outputLabel value="Password: " style="font-weight:bold" />
-    	    <h:inputSecret value="#{adminController.password}" />
-    	    <h:commandButton value="Login" action="#{adminController.login}" />
-    		</h:panelGrid>
-    	</h:form>
-    </div>
+		<h:form>
+			<!-- Da implementare il controllo sull'utente -->
+			<h:panelGrid>
+				<h:outputLabel value="Email: " style="font-weight:bold" />
+				<h:inputText value="#{loginController.email}" />
+				<h:outputLabel value="Password: " style="font-weight:bold" />
+				<h:inputSecret value="#{loginController.password}" />
+				<h:commandButton value="LoginUtente"
+					action="#{loginController.userLogin}" />
+				<h:commandButton value="LoginAdmin"
+					action="#{loginController.adminLogin}" />
+			</h:panelGrid>
+			<br />
+			<h:panelGrid>
+				<h:outputLabel value="Registrati!" style="fonr-weight:bold" />
+				<h:commandButton value="Registrati" action="newCustomer" />
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+	<h:form>
+		<h:commandButton value="Visualizza lista prodotti!"
+			action="#{productController.listProducts}" />
+		<div>
+			<c:if test="#{productController.size gt 0}">
+				<table>
+					<tr>
+						<th>Nome</th>
+						<th>Prezzo</th>
+					</tr>
+					<ui:repeat var="product" value="#{productController.products}">
+						<tr>
+							<td><h:commandLink action="#{productController.findProduct}"
+									value="#{product.name}">
+									<f:param name="id" value="#{product.id}" />
+								</h:commandLink></td>
+							<td>${product.price}</td>
+						</tr>
+					</ui:repeat>
+				</table>
+			</c:if>
+		</div>
+	</h:form>
 </h:body>
 </html>

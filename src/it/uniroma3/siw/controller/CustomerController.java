@@ -16,7 +16,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="customerController")
 @SessionScoped
-public class CustomerController {
+public class CustomerController extends LoginController{
 	
 	/* Address Creator */
 	private String street;
@@ -27,8 +27,6 @@ public class CustomerController {
 	/* Customer Creator */
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
     private Date dateOfBirth;
     private Date registrationDate;
     private Address address;
@@ -47,23 +45,6 @@ public class CustomerController {
 		return "customer";
 	}
 
-	public String login() {
-		this.customer = customerFacade.getCustomer(this.email);
-
-		if(this.customer!=null && customerFacade.controllaPassword(this.customer,this.password)){
-			return "customerProfile";
-		} else {
-			return "error";
-		}
-		
-//		Customer c = CustomerFacade.getCustomer((long) 2);
-//		if (c.password.equals(this.password)) {
-//			return "welcome";
-//		} else {
-//			return "error";
-//		}
-	}
-    
 //Getter&Setter    
     
 	public String getFirstName() {

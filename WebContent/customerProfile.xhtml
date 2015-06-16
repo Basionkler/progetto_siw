@@ -16,20 +16,27 @@
 			action="#{productController.listProducts}" />
 			${productController.size}
 		<div>
-		<c:if test="#{productController.size gt 0}">
-		<table><tr><th>Nome</th><th>Prezzo</th></tr>
-			<ui:repeat var="product" value="#{productController.products}">
-				<tr>
-					<td><h:commandLink action="#{productController.findProduct}"
-							value="#{product.name}">
-							<f:param name="id" value="#{product.id}" />
-						</h:commandLink></td>
-					<td>${product.price}</td>
-				</tr>
-			</ui:repeat>
-		</table>
-		</c:if>
+			<c:if test="#{productController.size gt 0}">
+				<table>
+					<tr>
+						<th>Nome</th>
+						<th>Prezzo</th>
+					</tr>
+					<ui:repeat var="product" value="#{productController.products}">
+						<tr>
+							<td><h:commandLink action="#{productController.findProduct}"
+									value="#{product.name}">
+									<f:param name="id" value="#{product.id}" />
+								</h:commandLink></td>
+							<td>${product.price}</td>
+						</tr>
+					</ui:repeat>
+				</table>
+			</c:if>
 		</div>
+	</h:form>
+	<h:form>
+		<h:commandButton value="Logout" action="index" />
 	</h:form>
 </h:body>
 </html>

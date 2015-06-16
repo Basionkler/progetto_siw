@@ -1,51 +1,56 @@
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:f="http://java.sun.com/jsf/core"
-    	xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
 <title>New Product</title>
 </head>
 
 <body>
-<f:view>
-<h:form>
-	<div>
-    	<h:outputLabel value="Nome:"/>
-    	<h:inputText value="#{productController.name}"
-    		required="true"
-			requiredMessage="Il nome è obligatorio" id="name">
-		</h:inputText>
-		<h:message for="name" styleClass="error" />
-	</div>
-	<div>
- 		<h:outputLabel value="Codice Prodotto:"/>
-    	<h:inputText value="#{productController.code}"
-    		required="true"
-			requiredMessage="Il Codice è obligatorio"
-			validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
-			id="code">
-			<f:validateLength minimum="6" maximum="10" />
-		</h:inputText>
-		<h:message for="code" styleClass="error" />
-	</div>
-	<div>
-		<h:outputLabel value="Prezzo:"/>
-		<h:inputText value="#{productController.price}"
-			required="true"
-			requiredMessage="Il prezzo è obligatorio"
-			converterMessage="Il prezzo deve essere un numero"
-			validatorMessage="il prezzo deve essere maggiore di zero" id="price">
-			<f:validateDoubleRange minimum="0" />
-		</h:inputText>
-		<h:message for="price" styleClass="error" />
-	</div>
-	<div>
-		<h:outputLabel value="Descrizione:"/>
-		<h:inputText value="#{productController.description}" required="false">
-		</h:inputText>
-		<h:commandButton value="Submit"	action="#{productController.createProduct}" /> 
- 	</div>
+	<f:view>
+		<h:form>
+			<div>
+				<h:outputLabel value="Nome:" />
+				<h:inputText value="#{productController.name}" required="true"
+					requiredMessage="Il nome è obligatorio" id="name">
+				</h:inputText>
+				<h:message for="name" styleClass="error" />
+			</div>
+			<div>
+				<h:outputLabel value="Codice Prodotto:" />
+				<h:inputText value="#{productController.code}" required="true"
+					requiredMessage="Il Codice è obligatorio"
+					validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
+					id="code">
+					<f:validateLength minimum="6" maximum="10" />
+				</h:inputText>
+				<h:message for="code" styleClass="error" />
+			</div>
+			<div>
+				<h:outputLabel value="Prezzo:" />
+				<h:inputText value="#{productController.price}" required="true"
+					requiredMessage="Il prezzo è obligatorio"
+					converterMessage="Il prezzo deve essere un numero"
+					validatorMessage="il prezzo deve essere maggiore di zero"
+					id="price">
+					<f:validateDoubleRange minimum="0" />
+				</h:inputText>
+				<h:message for="price" styleClass="error" />
+			</div>
+			<div>
+				<h:outputLabel value="Descrizione:" />
+				<h:inputText value="#{productController.description}"
+					required="false">
+				</h:inputText>
+				<h:commandButton value="Submit"
+					action="#{productController.createProduct}" />
+			</div>
+		</h:form>
+		<br />
+		<br />
+		<h:form>
+			<h:commandButton value="Torna indietro!" action="adminProfile" />
 		</h:form>
 	</f:view>
 </body>

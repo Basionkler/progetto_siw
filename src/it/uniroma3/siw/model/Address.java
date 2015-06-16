@@ -95,6 +95,12 @@ public class Address {
 		return provider;
 	}
 
+	@Override
+	public String toString() {
+		return "Address [street=" + street + ", city=" + city + ", state="
+				+ state + ", zipCode=" + zipCode + "]";
+	}
+
     
     
 

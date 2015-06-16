@@ -4,74 +4,73 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<h:title>Welcome</h:title>
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
-	<!-- Optional theme -->
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"></link>
-	<!-- Latest compiled and minified JavaScript -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" />
+	<h:title value="E-Commerce newNomeGruppo    -    SIW2015" />
 </h:head>
 <h:body>
-	<div class="container">
-		<h:form>
-			<!-- Da implementare il controllo sull'utente -->
-			<h:panelGrid>
-				<h:outputLabel value="Email: " style="font-weight:bold" />
-				<h:inputText value="#{customerController.email}" />
-				<h:outputLabel value="Password: " style="font-weight:bold" />
-				<h:inputSecret value="#{customerController.password}" />
-				<h:commandButton value="LoginUtente"
-					action="#{customerController.login}" />
-			</h:panelGrid>
-			<br />
-			<h:panelGrid>
-				<h:outputLabel value="Registrati!" style="fonr-weight:bold" />
-				<h:commandButton value="Registrati" action="newCustomer" />
-			</h:panelGrid>
+	<h:form class="form-inline" role="form">
+		<div style="float:center; margin-top:30px">
+					<p style="float:center">E-Commerce newNomeGruppo    -    SIW2015</p>
+					<footer>
+						Prodotto da: <cite title="Source Title">Federico Ferri, Emiliano Bovetti, Marco Pietrangeli.</cite>
+					</footer>
+		</div>
+	</h:form>
+		<h:form class="form-inline" role="form">
+			<div class="container" style="width:250px; height:200px; float:left">
+					<!-- Da implementare il controllo sull'utente -->
+							<div class="form-group">
+								<h:inputText
+									style="z-index:1; margin-top:15px; width:100%"
+									type="email" class="form-control" p:placeholder="Enter email"
+									value="#{customerController.email}" />
+							</div>
+						<div class="form-group">
+							<h:inputSecret class="form-control" p:placeholder="Password" value="#{customerController.password}" />
+						</div>
+						<h:commandButton class="btn btn-primary" value="Login Utente" action="#{customerController.login}" />
+						<h:commandButton class="btn btn-success" value="Registrati" action="newCustomer" />
+				</div>
 		</h:form>
-	</div>
-	<div class="container" align="right" 
-		style="position: relative">
-		<h:form>
-			<h:panelGrid>
-				<h:outputLabel value="Email: " style="font-weight:bold" />
-				<h:inputText value="#{adminController.email}" />
-				<h:outputLabel value="Password: " style="font-weight:bold" />
-				<h:inputSecret value="#{adminController.password}" />
-				<h:commandButton value="LoginAdmin"
-					action="#{adminController.login}" />
-			</h:panelGrid>
+		<h:form class="form-inline" role="form">
+			<div class="container" style="width:250px; height:200px; float:right">
+				<div class="form-group">
+					<h:inputText value="#{adminController.email}" style="z-index:1; margin-top:15px; width:100%"
+										type="email" class="form-control" p:placeholder="Enter email"/>
+				</div>
+				<div class="form-group">
+					<h:inputSecret value="#{adminController.password}" class="form-control"  p:placeholder="Password" />
+				</div>
+				<h:commandButton class="btn btn-primary" value="LoginAdmin" action="#{adminController.login}" />
+			</div>
 		</h:form>
-	</div>
-	<h:form>
-		<h:commandButton value="Visualizza lista prodotti!"
-			action="#{productController.listProducts}" />
-		<div>
-			<c:if test="#{productController.size gt 0}">
-				<table>
-					<tr>
-						<th>Nome</th>
-						<th>Prezzo</th>
-					</tr>
-					<ui:repeat var="product" value="#{productController.products}">
+	<h:form class="form-inline" role="form">
+	<div class="container" style="float:center; margin-left:40%; margin-top:30px">
+			<h:commandButton class="btn btn-info" value="Visualizza lista prodotti!" action="#{productController.listProducts}" />
+			<div>
+				<c:if test="#{productController.size gt 0}">
+					<table>
 						<tr>
-							<td><h:commandLink action="#{productController.findProduct}"
-									value="#{product.name}">
-									<f:param name="id" value="#{product.id}" />
-								</h:commandLink></td>
-							<td>${product.price}</td>
+							<th>Nome</th>
+							<th>Prezzo</th>
 						</tr>
-					</ui:repeat>
-				</table>
-			</c:if>
+						<ui:repeat var="product" value="#{productController.products}">
+							<tr>
+								<td><h:commandLink action="#{productController.findProduct}"
+										value="#{product.name}">
+										<f:param name="id" value="#{product.id}" />
+									</h:commandLink></td>
+								<td>${product.price}</td>
+							</tr>
+						</ui:repeat>
+					</table>
+				</c:if>
+			</div>
 		</div>
 	</h:form>
 </h:body>

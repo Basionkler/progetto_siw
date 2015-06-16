@@ -1,7 +1,6 @@
 package it.uniroma3.siw.model;
 
 import javax.persistence.*;
-import java.util.*;
 
 @Entity
 @Table(name="tb_provider")

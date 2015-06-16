@@ -29,11 +29,10 @@
 							<td>${product.price}</td>
 							<td><h:inputText value="#{orderController.quantity}" />
 							</td>
-							<td><h:commandButton value="Aggiungi al carrello"
-									action="#{orderController.addProduct(product)}" /></td>
+							<td><h:commandButton value="Aggiungi al carrello" action="#{orderController.addProduct(product)}" /></td>
 						</tr>
-					</h:form>
-				</ui:repeat>
+					</h:form> 
+				</ui:repeat> 
 			</table>
 			<h:commandButton value="Completa l'ordine" action="#{orderController.closeOrder}" />
 	</f:view>

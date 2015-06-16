@@ -40,9 +40,10 @@ public class OrderController {
 		orderFacade.evadeOrder(this.ordineCorrente);
 	}
 	
-	public void addProduct(Product p){
+	public String addProduct(Product p){
 		this.ordineCorrente.getOrderLines().add(orderFacade.createOrderLine(p, this.quantity));
 		orderFacade.updateOrder(this.ordineCorrente);
+		return "newOrder";
 	}
 
 	public Integer getQuantity() {

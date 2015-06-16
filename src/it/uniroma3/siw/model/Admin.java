@@ -15,6 +15,7 @@ import java.util.*;
 @NamedQueries({
 	@NamedQuery(name = "findAllAdmins", query = "SELECT a FROM Admin a"),
 	@NamedQuery(name = "findAdminByEmail", query = "SELECT a FROM Admin a WHERE a.email = :email"),
+	@NamedQuery(name = "findAdminByNickname", query = "SELECT a FROM Admin a WHERE a.nickname = :nickname")
 })
 public class Admin{
 	

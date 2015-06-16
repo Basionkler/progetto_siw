@@ -21,12 +21,19 @@ public class AdminFacade {
 		Admin admin = em.find(Admin.class, id);
 		return admin;
 	}
-
+	
+	public Admin getAdminByNickName(String nickname) {
+		TypedQuery<Admin> query = em.createNamedQuery("findAdminByNickname", Admin.class);
+		query.setParameter("nickname", nickname);
+		return query.getSingleResult();
+	}
+	
+	/*
 	public Admin getAdminByEmail(String email) {
 		TypedQuery<Admin> query = em.createNamedQuery("findAdminByEmail", Admin.class);
 		query.setParameter("email", email);
 		return query.getSingleResult();
-	}
+	}*/
 
 	public boolean controllaPassword(Admin a, String password) {
 		return a.getPassword().equals(password);

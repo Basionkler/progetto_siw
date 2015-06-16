@@ -26,7 +26,7 @@ public class AdminController{
 	}
 
 	public String login() {
-		this.admin = adminFacade.getAdminByEmail(this.email);
+		this.admin = adminFacade.getAdminByNickName(this.nickname);
 		if(this.admin!=null && adminFacade.controllaPassword(this.admin,this.password)){
 			return "adminProfile";
 		} else {

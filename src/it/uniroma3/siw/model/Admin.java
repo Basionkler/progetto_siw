@@ -14,7 +14,7 @@ import java.util.*;
 @Table(name="tb_admin")
 @NamedQueries({
 	@NamedQuery(name = "findAllAdmins", query = "SELECT a FROM Admin a"),
-	@NamedQuery(name = "findAdminByEmail", query = "SELECT a FROM Admin a WHERE a.email = :email")
+	@NamedQuery(name = "findAdminByEmail", query = "SELECT a FROM Admin a WHERE a.email = :email"),
 })
 public class Admin{
 	

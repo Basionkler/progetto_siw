@@ -22,11 +22,11 @@ public class AdminController {
 	
 	public String createAdmin() {
 		this.admin = adminFacade.createAdmin(nickname, email, password);
-		return "admin";
+		return "adminProfile";
 	}
 	
 	public String login() {
-		this.admin = adminFacade.getAdmin(this.email);
+		this.admin = adminFacade.getAdminByEmail(this.email);
 		if(this.admin!=null && adminFacade.controllaPassword(this.admin,this.password)){
 			return "adminProfile";
 		} else {

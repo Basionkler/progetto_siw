@@ -1,7 +1,6 @@
 package it.uniroma3.siw.model.facade;
 
 import it.uniroma3.siw.model.Admin;
-import it.uniroma3.siw.model.Customer;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
@@ -23,7 +22,7 @@ public class AdminFacade {
 		return admin;
 	}
 
-	public Admin getAdmin(String email) {
+	public Admin getAdminByEmail(String email) {
 		TypedQuery<Admin> query = em.createNamedQuery("findAdminByEmail", Admin.class);
 		query.setParameter("email", email);
 		return query.getSingleResult();

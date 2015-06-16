@@ -7,12 +7,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<h:title>Nuovo Ordine</h:title>
+	<title>Nuovo Ordine</title>
 </h:head>
 <h:body>
 	<f:view>
 		<h1>Products</h1>
-		<h:form>
 			<table>
 				<tr>
 					<th>Name</th>
@@ -20,29 +19,23 @@
 					<th>Quantità</th>
 				</tr>
 				<ui:repeat var="product" value="#{productController.products}">
-					<tr>
-						<td><h:commandLink action="#{productController.findProduct}"
-								value="#{product.name}">
-								<f:param name="id" value="#{product.id}" />
-							</h:commandLink>
-							</td></tr>
-					<tr>
-						<td>${product.price}</td>
-					</tr>
-					<tr>
-						<td><h:inputText value="#{orderController.quantity}" />
-						
-						<!-- <input type="number" min="1" name="quantity" />-->
-						</td>
-					</tr>
-					<tr>
-						<td><h:commandButton value="Aggiungi al carrello"
-								action="#{orderController.addProduct(product)}" /></td>
-					</tr>
+					<h:form>
+						<tr>
+							<td><h:commandLink action="#{productController.findProduct}"
+									value="#{product.name}">
+									<f:param name="id" value="#{product.id}" />
+								</h:commandLink>
+								</td>
+							<td>${product.price}</td>
+							<td><h:inputText value="#{orderController.quantity}" />
+							</td>
+							<td><h:commandButton value="Aggiungi al carrello"
+									action="#{orderController.addProduct(product)}" /></td>
+						</tr>
+					</h:form>
 				</ui:repeat>
 			</table>
 			<h:commandButton value="Completa l'ordine" action="#{orderController.closeOrder}" />
-		</h:form>
 	</f:view>
 
 </h:body>

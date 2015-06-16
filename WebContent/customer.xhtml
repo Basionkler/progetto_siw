@@ -15,6 +15,9 @@
 			<div>Data di Nascita: ${customerController.customer.dateOfBirth}</div>
 			<div>Data di Registrazione: ${customerController.customer.registrationDate}</div>
 			<div>Indirizzo: ${customerController.customer.address }</div>
+			<h:form>
+			<h:commandButton value="Esegui il login" action="#{customerController.login}" />
+			</h:form>
 		</f:view>
 	</h:body>
 </html>

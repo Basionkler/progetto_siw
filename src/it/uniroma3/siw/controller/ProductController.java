@@ -95,6 +95,9 @@ public class ProductController {
 	}
 
 	public List<Product> getProducts() {
+		if (products == null || products.size() == 0) {
+			this.listProducts();
+		}
 		return products;
 	}
 

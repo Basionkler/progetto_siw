@@ -25,13 +25,13 @@ public class OrderFacade {
 	
 	public Order closeOrder(Order o) {
 		o.setClosingDate(new Date());
-		em.persist(o);
+		em.merge(o);
 		return o;
 	}
 	
 	public Order evadeOrder(Order o) {
 		o.setProcessingDate(new Date());
-		em.persist(o);
+		em.merge(o);
 		return o;
 	}
 	
@@ -40,8 +40,10 @@ public class OrderFacade {
 		return order;
 	}
 
-	public OrderLine CreaLineOrdine(Product prodottoCorrente, Integer quantitaProdottoCorrente) {
-		return new OrderLine(quantitaProdottoCorrente, prodottoCorrente);
+	public OrderLine createOrderLine(Product prodottoCorrente, Integer quantitaProdottoCorrente) {
+		OrderLine ol = new OrderLine(quantitaProdottoCorrente, prodottoCorrente);
+		em.persist(ol);
+		return ol;
 	}
 
 	public void updateOrder(Order order) {

@@ -16,9 +16,9 @@ public class CustomerFacade {
 	@PersistenceContext(unitName = "products-unit")
 	private EntityManager em;
 	
-	public Customer createCustomer(String firstName, String lastName, String email, String password, Date dateOfBirth, Address address, List<Order> orders) {
+	public Customer createCustomer(String firstName, String lastName, String email, String password, Date dateOfBirth, Address address) {
 		Date registrationDate = new Date();
-		Customer c = new Customer(firstName, lastName, email, password, dateOfBirth, registrationDate, address, orders);
+		Customer c = new Customer(firstName, lastName, email, password, dateOfBirth, registrationDate, address);
 		em.persist(c);
 		return c;
 	}

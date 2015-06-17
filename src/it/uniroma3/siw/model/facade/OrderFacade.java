@@ -9,8 +9,8 @@ import it.uniroma3.siw.model.Product;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 @Stateless(name="orderFacade")
 public class OrderFacade {
@@ -20,6 +20,12 @@ public class OrderFacade {
 	
 	public Order createOrder(Customer c) {
 		Order order = new Order(c);
+		try {
+		c.addOrder(order);
+		} catch (Exception e) {
+			System.out.println(c);
+			System.out.println(order);
+		}
 		em.persist(order);
 		return order;
 	}
@@ -42,9 +48,12 @@ public class OrderFacade {
 	}
 	
 	public Order getOrdineAperto(Customer c){
-		Query q = em.createQuery("SELECT order FROM tb_order WHERE customer_id = "+c.getId()+" AND creationtime = "+null+" ");
-		Order ordineCorrente = (Order) q.getSingleResult();
-		return ordineCorrente;
+		try {
+			return (Order)em.createQuery("SELECT o FROM Order o WHERE o.customer = :c AND o.closingDate is null")
+					.setParameter("c", c).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 
 	public OrderLine createOrderLine(Product prodottoCorrente, Integer quantitaProdottoCorrente) {

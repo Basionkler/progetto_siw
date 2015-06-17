@@ -6,7 +6,7 @@ import java.util.*;
 
 @Entity
 @Table(name="tb_order")
-@NamedQuery(name = "findAllOrder", query = "SELECT p FROM tb_order p")
+@NamedQuery(name = "findAllOrder", query = "SELECT p FROM Order p")
 public class Order {
 
 	@Id

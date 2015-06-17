@@ -39,7 +39,7 @@
 		</div>
 	</h:form>
 	<h:form>
-		<h:commandButton class="btn btn-primary" style="width:200px" value="Crea Ordine" action="#{orderController.createOrder}" /><br />
+		<h:commandButton class="btn btn-primary" style="width:200px" value="Crea Ordine" action="#{orderController.createOrder(customerController.customer)}" /><br />
 		<h:commandButton class="btn btn-danger" style="width:200px" value="Logout" action="index" /><br />
 	</h:form>
 </h:body>

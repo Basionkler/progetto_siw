@@ -43,7 +43,7 @@ public class Customer{
 	// Costruttori
 	public Customer(String firstName, String lastName, String email,
 			String password, Date dateOfBirth, Date registrationDate,
-			Address address, List<Order> orders) {
+			Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -51,7 +51,7 @@ public class Customer{
 		this.dateOfBirth = dateOfBirth;
 		this.registrationDate = registrationDate;
 		this.address = address;
-		this.orders = orders;
+		this.orders = new ArrayList<>();
 	}
 
 	/**

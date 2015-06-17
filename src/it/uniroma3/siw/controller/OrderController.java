@@ -26,7 +26,7 @@ public class OrderController {
 		this.quantity = 1;
 	}
 	
-	public String createOrder() {
+	public String createOrder(Customer c) {
 		this.ordineCorrente = orderFacade.getOrdineAperto(c);
 		if(this.ordineCorrente==null)
 			this.ordineCorrente = orderFacade.createOrder(c);

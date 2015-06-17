@@ -15,14 +15,14 @@ import javax.persistence.PersistenceContext;
 
 @Stateless(name="orderFacade")
 public class OrderFacade {
-	
+
 	@PersistenceContext(unitName ="products-unit")
 	private EntityManager em;
-	
+
 	public Order createOrder(Customer c) {
 		Order order = new Order(c);
 		try {
-		c.addOrder(order);
+			c.addOrder(order);
 		} catch (Exception e) {
 			System.out.println(c);
 			System.out.println(order);
@@ -30,24 +30,49 @@ public class OrderFacade {
 		em.persist(order);
 		return order;
 	}
-	
-	public Order closeOrder(Order o) {
-		o.setClosingDate(new Date());
-		em.merge(o);
-		return o;
+
+	public Order closeOrder(Order ordineCorrente) {
+		ordineCorrente.setClosingDate(new Date());
+		em.merge(ordineCorrente);
+		return ordineCorrente;
 	}
-	
-	public Order evadeOrder(Order o) {
-		o.setProcessingDate(new Date());
-		em.merge(o);
-		return o;
+
+	public Order evadeOrder(Order ordineCorrente) {
+
+		List<OrderLine> orderLines = em.createQuery("SELECT ol FROM OrderLine ol WHERE order = :o",OrderLine.class).setParameter("o", ordineCorrente).getResultList();
+
+		if(controlloDisponibilitaProdotti(orderLines)){
+			rimuoviProdottiDalCatalogo(orderLines);
+			ordineCorrente.setProcessingDate(new Date());
+			em.merge(ordineCorrente);
+		}
+		
+		return ordineCorrente;
 	}
-	
+
+	private boolean controlloDisponibilitaProdotti(List<OrderLine> orderLines) {
+		
+		for(OrderLine ol:orderLines){
+			if(!(ol.getQuantity() <= ol.getProduct().getQuantitaDisponibile())){
+				return false;
+			}
+		}
+		
+		return true;		
+	}
+
+	private void rimuoviProdottiDalCatalogo(List<OrderLine> orderLines) {
+		for(OrderLine ol:orderLines){
+			ol.getProduct().setQuantitaDisponibile(ol.getProduct().getQuantitaDisponibile()-ol.getQuantity());
+			em.merge(ol.getProduct());
+		}
+	}
+
 	public Order getOrder(Long id) {
 		Order order = em.find(Order.class, id);
 		return order;
 	}
-	
+
 	public Order getOrdineAperto(Customer c){
 		try {
 			return (Order)em.createQuery("SELECT o FROM Order o WHERE o.customer = :c AND o.closingDate is null")
@@ -56,7 +81,7 @@ public class OrderFacade {
 			return null;
 		}
 	}
-	
+
 	public OrderLine findProdottoInOrdine(Product p, Order ordineCorrente) {
 		try {
 			return (OrderLine)em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order = :o AND ol.product = :p")
@@ -73,12 +98,12 @@ public class OrderFacade {
 		em.persist(ol);
 		return ol;
 	}
-	
+
 
 	public void updateOrder(Order order) {
 		em.merge(order);		
 	}	
-	
+
 	public List<OrderLine> getAllLinesOrder(Order order) {
 		return em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order = :order", OrderLine.class)
 				.setParameter("order", order).getResultList();

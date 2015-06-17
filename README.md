@@ -63,6 +63,8 @@ Casi d'uso cliente:
 
   Il sistema registra un nuovo ordine negli ordini dell'utente e aggiorna la data di creazione.
 
+  >Se è presente un ordine aperto e non confermato, il sistema riprenderà tale ordine.
+
   Il sistema mostra all'utente i prodotti disponibili.
 
 ###Inserimento prodotto nell'ordine:

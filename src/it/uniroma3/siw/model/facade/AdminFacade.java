@@ -25,7 +25,11 @@ public class AdminFacade {
 	public Admin getAdminByNickName(String nickname) {
 		TypedQuery<Admin> query = em.createNamedQuery("findAdminByNickname", Admin.class);
 		query.setParameter("nickname", nickname);
-		return query.getSingleResult();
+		try {
+			return query.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 	/*

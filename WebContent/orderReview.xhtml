@@ -4,8 +4,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
 <h:head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
@@ -18,7 +18,7 @@
 		<tr class="info">
 			<th>Name</th>
 			<th>Price</th>
-				<ui:repeat var="lineOrder" items="#{orderController.orderlines;}">
+				<ui:repeat var="lineOrder" value="#{orderController.orderlines}">
 					<tr class="info">
 						<td>${lineOrder.product}</td>
 						<td>${lineOrder.quantity}</td>

@@ -55,6 +55,15 @@ public class OrderFacade {
 			return null;
 		}
 	}
+	
+	public OrderLine findProdottoInOrdine(Product p, Order ordineCorrente) {
+		try {
+			return (OrderLine)em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order = :o AND ol.product :p")
+					.setParameter("o", ordineCorrente).setParameter("p", p).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 
 	public OrderLine createOrderLine(Product prodottoCorrente, Integer quantitaProdottoCorrente) {
 		OrderLine ol = new OrderLine(quantitaProdottoCorrente, prodottoCorrente);

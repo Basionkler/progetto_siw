@@ -2,6 +2,7 @@ package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
+import it.uniroma3.siw.model.OrderLine;
 import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.OrderFacade;
 
@@ -43,7 +44,9 @@ public class OrderController {
 	}
 	
 	public String addProduct(Product p){
-		this.ordineCorrente.getOrderLines().add(orderFacade.createOrderLine(p, this.quantity));
+		OrderLine ol = orderFacade.findProdottoInOrdine(p,ordineCorrente);
+		if(ol==null) this.ordineCorrente.getOrderLines().add(orderFacade.createOrderLine(p, this.quantity));
+		else ol.setQuantity(quantity);
 		orderFacade.updateOrder(this.ordineCorrente);
 		return "newOrder";
 	}

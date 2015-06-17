@@ -20,6 +20,9 @@ public class Product {
 
 	@Column(nullable = false)
 	private Float price;
+	
+	@Column(nullable = false)
+	private Integer quantitaDisponibile;
 
 	@Column(nullable = false)
 	private String code;
@@ -37,11 +40,12 @@ public class Product {
 	public Product() {
     }
 
-	public Product(String name, Float price, String description, String code) {
+	public Product(String name, Float price, String description, String code, Integer quantity) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.code = code;
+        this.quantitaDisponibile = quantity;
        // this.providers = new ArrayList<Provider>();
 }
 

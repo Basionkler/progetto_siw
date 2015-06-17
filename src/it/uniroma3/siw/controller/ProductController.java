@@ -18,13 +18,14 @@ public class ProductController {
 	private String description;
 	private String code;
 	private Product product;
+	private Integer quantity;
 	private List<Product> products;
 	
 	@EJB(beanName="productFacade")
 	private ProductFacade productFacade;
 	
 	public String createProduct() {
-		this.product = productFacade.createProduct(name, code, price, description);
+		this.product = productFacade.createProduct(name, code, price, description, quantity);
 		return "product"; 
 	}
 	

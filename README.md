@@ -4,7 +4,9 @@ Casi d'uso
 Casi d'uso cliente:
 -------------------
 
-* Registrazione
+* Registrazione:
+    Un utente non registrato fa click sul pulsante *Registrati*, inserisce i proprio dati e conferma
+    l'inserimento tramite il pulsante *submit*
 
 * Login
 

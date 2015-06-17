@@ -49,16 +49,9 @@ public class ProductFacade{
 	}
 
 	public List<Product> getAllProducts() {
-<<<<<<< HEAD
        CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
         cq.select(cq.from(Product.class));
         List<Product> products = em.createQuery(cq).getResultList();
-=======
-
-		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
-		cq.select(cq.from(Product.class));
-		List<Product> products = em.createQuery(cq).getResultList();
->>>>>>> 864c5acba01a9ba25cae3b15d4f8c5e501d3e4c6
 		return products;
 	}
 

@@ -23,8 +23,11 @@ public class ProductFacade{
 		if(product==null){
 			product = new Product(name, price, description, code, quantitaDisponibile);
 			em.persist(product);
-		}else{
+		}else if(product.getName() == name){
 			product.setQuantitaDisponibile(product.getQuantitaDisponibile()+quantitaDisponibile);
+			em.merge(product);
+		}else{
+			return null;
 		}
 		return product;
 	}

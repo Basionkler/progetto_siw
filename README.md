@@ -1,3 +1,8 @@
+Amazon EC2
+==========
+
+Il progetto è stato caricato su Amazon AWS ed è disponibile [qui](http://52.28.151.79/progetto_siw)
+
 Casi d'uso
 ==========
 

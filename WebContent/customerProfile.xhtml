@@ -17,25 +17,6 @@
 	<h:form class="form-inline" role="form">
 		<h:commandButton 	class="btn btn-info" style="width:200px" value="Visualizza Ordini"
 							action="#{orderController.retrieveCustomerOrder(customerController.customer)}" />
-		<div class="container">
-			<c:if test="#{orderController.size gt 0}">
-				<table class="table table-hover">
-					<tr class="info">
-						<th>ID Ordine</th>
-						<th>Data apertura</th>
-						<th>Data chiusura</th>
-						<th>Stato</th>
-					</tr>
-					<ui:repeat var="order" value="#{orderController.orderForCustomer}">
-						<tr class="info">
-							<td>${order.id}</td>
-							<td>${order.creationDate}</td>
-							<td>${order.closingDate}</td>
-						</tr>
-					</ui:repeat>
-				</table>
-			</c:if>
-		</div>
 	</h:form>
 	<h:form>
 		<h:commandButton class="btn btn-primary" style="width:200px" value="Crea Ordine" action="#{orderController.createOrder(customerController.customer)}" /><br />

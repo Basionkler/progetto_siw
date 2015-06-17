@@ -48,8 +48,9 @@ public class OrderController {
 		orderFacade.evadeOrder(ordinecorrente);
 	}
 	
-	public List<Order> retrieveCustomerOrder(Customer customer) {
-		return orderFacade.getCustomerOrders(customer);
+	public String retrieveCustomerOrder(Customer customer) {
+		this.orderForCustomer = orderFacade.getCustomerOrders(customer);
+		return "allCustomerOrders";
 	}
 	
 	public List<Order> getOrderToEvade() {

@@ -23,11 +23,16 @@
 				<ui:repeat var="order" value="#{orderController.orderToEvade}">
 					<tr class="info">
 						<td>${order.id}</td>
-						<td>${order.customer.firstName}</td>
+						<td><h:commandLink value="#{order.customer.firstName}" action="#{orderController.findCustomer}">
+							<f:param name="id" value="#{order.customer.id}" /></h:commandLink>
+						</td>
 						<td>${order.customer.lastName}</td>
 						<td><h:commandButton 	class="btn btn-success" style="width:100px" value="Evadi" 
 												action="#{orderController.evadeOrder(order)}" /></td>
 					</tr>
+							<td><h:commandLink action="#{productController.findProduct}"
+								value="#{product.name}"><f:param name="id" value="#{product.id}" />
+							</h:commandLink>
 				</ui:repeat>
 			</tr>
 		</table>

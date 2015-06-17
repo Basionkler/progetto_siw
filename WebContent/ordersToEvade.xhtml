@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" />
+	<h:title value="E-Commerce newNomeGruppo    -    SIW2015" />
+</h:head>
+<h:body>
+	<h:form class="form-inline" role="form">
+		<table class="table table-hover" style="width: 60%">
+			<tr class="info">
+				<th>ID ordine</th>
+				<th>Nome Cliente</th>
+				<th>Cognome Cliente</th>
+				<th>Evadi</th>
+				<ui:repeat var="order" value="#{orderController.orderToEvade}">
+					<tr class="info">
+						<td>${order.id}</td>
+						<td>${order.customer.firstName}</td>
+						<td>${order.customer.lastName}</td>
+						<td><h:commandButton 	class="btn btn-success" style="width:100px" value="Evadi" 
+												action="#{orderController.evadeOrder(order)}" /></td>
+					</tr>
+				</ui:repeat>
+			</tr>
+		</table>
+		<h:commandButton class="btn btn-primary" style="width:100px" value="Torna indietro" action="adminProfile" />
+	</h:form>
+</h:body>
+</html>

@@ -38,12 +38,12 @@ public class OrderFacade {
 	}
 
 	public List<Order> getOrdiniDaEvadere(){
-		return em.createQuery("SELECT o FROM Order o WHERE o.processingDate is null", Order.class).getResultList();
+		return em.createQuery("SELECT o FROM Order o WHERE o.processingDate is null AND o.closingDate is NOT null", Order.class).getResultList();
 	}
 	
 	public Order evadeOrder(Order ordineCorrente) {
-
-		List<OrderLine> orderLines = em.createQuery("SELECT ol FROM OrderLine ol WHERE order = :o",OrderLine.class).setParameter("o", ordineCorrente).getResultList();
+		List<OrderLine> orderLines = em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order = :o",OrderLine.class)
+				.setParameter("o", ordineCorrente).getResultList();
 
 		if(controlloDisponibilitaProdotti(orderLines)){
 			rimuoviProdottiDalCatalogo(orderLines);
@@ -55,9 +55,8 @@ public class OrderFacade {
 	}
 
 	private boolean controlloDisponibilitaProdotti(List<OrderLine> orderLines) {
-		
 		for(OrderLine ol:orderLines){
-			if(!(ol.getQuantity() <= ol.getProduct().getQuantitaDisponibile())){
+			if(orderLines != null && ol.getQuantity() >= ol.getProduct().getQuantitaDisponibile()){
 				return false;
 			}
 		}

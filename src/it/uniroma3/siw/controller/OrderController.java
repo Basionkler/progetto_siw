@@ -20,6 +20,7 @@ public class OrderController {
 	private Integer quantity;
 	private Order ordineCorrente;
 	private List<OrderLine> orderlines;
+	private List<Order> orderToEvade;
 	private Customer c;
 	
 	@EJB(beanName="orderFacade")
@@ -42,8 +43,12 @@ public class OrderController {
 		return "customerProfile";
 	}
 	
-	public void evadeOrder() {
-		orderFacade.evadeOrder(this.ordineCorrente);
+	public void evadeOrder(Order ordinecorrente) {
+		orderFacade.evadeOrder(ordinecorrente);
+	}
+	
+	public List<Order> getOrderToEvade() {
+		return this.orderToEvade = orderFacade.getOrdiniDaEvadere();
 	}
 	
 	public String addProduct(Product p){
@@ -97,6 +102,10 @@ public class OrderController {
 
 	public void setOrderlines(List<OrderLine> orderlines) {
 		this.orderlines = orderlines;
+	}
+
+	public void setOrderToEvade(List<Order> orderToEvade) {
+		this.orderToEvade = orderToEvade;
 	}
 
 	

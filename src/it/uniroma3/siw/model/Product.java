@@ -27,15 +27,7 @@ public class Product {
 	@Column(nullable = false)
 	private String code;
 
-	@Column(nullable = true)
-	@OneToOne
 	private OrderLine orderLine;
-
-
-	/*@Column(nullable = true)
-	@ManyToMany(targetEntity = it.uniroma3.siw.model.Provider.class, mappedBy = "products")
-	private List<Provider> providers;*/
-	//Costruttore
 
 	public Product() {
 	}

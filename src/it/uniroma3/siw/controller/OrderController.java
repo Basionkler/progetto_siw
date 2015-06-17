@@ -27,7 +27,9 @@ public class OrderController {
 	}
 	
 	public String createOrder() {
-		this.ordineCorrente = orderFacade.createOrder(c);
+		this.ordineCorrente = orderFacade.getOrdineAperto(c);
+		if(this.ordineCorrente==null)
+			this.ordineCorrente = orderFacade.createOrder(c);
 		return "newOrder";
 	}
 	

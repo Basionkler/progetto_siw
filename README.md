@@ -1,6 +1,13 @@
 Casi d'uso
 ==========
 
+* Consulta listino:
+    Un utente non autenticato consulta il catalogo dei prodotti tramite il pulsante *Visualizza lista prodotti*.
+
+    Il sistema mostra l'elenco dei prodotti nel catalogo
+
+    L'utente sceglie un
+
 Casi d'uso cliente:
 -------------------
 

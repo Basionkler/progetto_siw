@@ -37,6 +37,10 @@ public class OrderFacade {
 		return ordineCorrente;
 	}
 
+	public List<Order> getOrdiniDaEvadere(){
+		return em.createQuery("SELECT o FROM Order o WHERE o.processingDate is null", Order.class).getResultList();
+	}
+	
 	public Order evadeOrder(Order ordineCorrente) {
 
 		List<OrderLine> orderLines = em.createQuery("SELECT ol FROM OrderLine ol WHERE order = :o",OrderLine.class).setParameter("o", ordineCorrente).getResultList();

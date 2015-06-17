@@ -1,0 +1,476 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.0
+-- Dumped by pg_dump version 9.4.0
+-- Started on 2015-06-17 18:24:53
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 180 (class 3079 OID 11855)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2056 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 172 (class 1259 OID 33334)
+-- Name: openjpa_sequence_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE openjpa_sequence_table (
+    id smallint NOT NULL,
+    sequence_value bigint
+);
+
+
+ALTER TABLE openjpa_sequence_table OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 33339)
+-- Name: tb_address; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_address (
+    id bigint NOT NULL,
+    city character varying(255) NOT NULL,
+    state character varying(255) NOT NULL,
+    street character varying(255) NOT NULL,
+    zipcode character varying(255) NOT NULL,
+    customer_id bigint
+);
+
+
+ALTER TABLE tb_address OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 33347)
+-- Name: tb_admin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_admin (
+    id bigint NOT NULL,
+    email character varying(255) NOT NULL,
+    nickname character varying(255) NOT NULL,
+    password character varying(255) NOT NULL
+);
+
+
+ALTER TABLE tb_admin OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 33355)
+-- Name: tb_customer; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_customer (
+    id bigint NOT NULL,
+    dateofbirth date,
+    email character varying(255) NOT NULL,
+    firstname character varying(255) NOT NULL,
+    lastname character varying(255) NOT NULL,
+    password character varying(255) NOT NULL,
+    registrationdate date,
+    address_id bigint
+);
+
+
+ALTER TABLE tb_customer OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 33365)
+-- Name: tb_order; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_order (
+    id bigint NOT NULL,
+    closingdate timestamp without time zone,
+    creationdate timestamp without time zone NOT NULL,
+    processingdate timestamp without time zone,
+    customer_id bigint
+);
+
+
+ALTER TABLE tb_order OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 33370)
+-- Name: tb_order_line; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_order_line (
+    id bigint NOT NULL,
+    quantity integer NOT NULL,
+    unitprice real NOT NULL,
+    order_id bigint,
+    product_id bigint
+);
+
+
+ALTER TABLE tb_order_line OWNER TO postgres;
+
+--
+-- TOC entry 178 (class 1259 OID 33375)
+-- Name: tb_order_tb_order_line; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_order_tb_order_line (
+    order_id bigint,
+    orderlines_id bigint
+);
+
+
+ALTER TABLE tb_order_tb_order_line OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 33378)
+-- Name: tb_product; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_product (
+    id bigint NOT NULL,
+    code character varying(255) NOT NULL,
+    description text NOT NULL,
+    name character varying(255) NOT NULL,
+    price real NOT NULL,
+    quantitadisponibile integer NOT NULL
+);
+
+
+ALTER TABLE tb_product OWNER TO postgres;
+
+--
+-- TOC entry 2043 (class 0 OID 33334)
+-- Dependencies: 172
+-- Data for Name: openjpa_sequence_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY openjpa_sequence_table (id, sequence_value) FROM stdin;
+0	301
+\.
+
+
+--
+-- TOC entry 2044 (class 0 OID 33339)
+-- Dependencies: 173
+-- Data for Name: tb_address; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_address (id, city, state, street, zipcode, customer_id) FROM stdin;
+1	Roma	Italia	Via dei Fiori, 12	00100	\N
+2	Roma	Italia	Via Caltagirone 15	00100	\N
+\.
+
+
+--
+-- TOC entry 2045 (class 0 OID 33347)
+-- Dependencies: 174
+-- Data for Name: tb_admin; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_admin (id, email, nickname, password) FROM stdin;
+1	admin@admin.it	admin	admin
+151	postgres@postegres.it	postgres	postgres
+\.
+
+
+--
+-- TOC entry 2046 (class 0 OID 33355)
+-- Dependencies: 175
+-- Data for Name: tb_customer; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_customer (id, dateofbirth, email, firstname, lastname, password, registrationdate, address_id) FROM stdin;
+51	1990-11-11	customer@customer.it	customer	customer	customer	2015-06-17	1
+52	1890-05-23	Cliente@yahoo.it	Cliente	Cliente	cliente	2015-06-17	2
+\.
+
+
+--
+-- TOC entry 2047 (class 0 OID 33365)
+-- Dependencies: 176
+-- Data for Name: tb_order; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_order (id, closingdate, creationdate, processingdate, customer_id) FROM stdin;
+102	2015-06-17 18:19:08.606	2015-06-17 18:18:46.948	\N	52
+104	2015-06-17 18:19:43.08	2015-06-17 18:19:33.522	\N	52
+101	2015-06-17 18:20:57.796	2015-06-17 18:09:36.881	\N	51
+107	2015-06-17 18:21:35.88	2015-06-17 18:21:21.388	\N	51
+103	2015-06-17 18:19:31.905	2015-06-17 18:19:10.499	2015-06-17 18:21:51.768	52
+105	2015-06-17 18:20:30.62	2015-06-17 18:20:13.825	2015-06-17 18:21:53.283	52
+106	2015-06-17 18:21:20.07	2015-06-17 18:20:59.948	2015-06-17 18:21:54.58	51
+\.
+
+
+--
+-- TOC entry 2048 (class 0 OID 33370)
+-- Dependencies: 177
+-- Data for Name: tb_order_line; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_order_line (id, quantity, unitprice, order_id, product_id) FROM stdin;
+251	1	40	102	208
+252	3	1.5	102	203
+253	20	0.200000003	102	210
+254	2	0.5	102	201
+255	2	3	103	204
+256	1	5	103	209
+257	10	1	103	202
+258	1	2.5	103	205
+259	1	0.5	104	201
+260	1	1	104	202
+261	1	3	105	204
+262	1	2	101	206
+263	1	0.5	101	201
+264	1	15	106	211
+265	1	40	106	208
+266	1	2	106	207
+267	3	1	106	202
+268	3	0.5	106	201
+269	0	2.5	107	205
+270	0	1.5	107	203
+271	1	15	107	211
+272	1	1	107	202
+\.
+
+
+--
+-- TOC entry 2049 (class 0 OID 33375)
+-- Dependencies: 178
+-- Data for Name: tb_order_tb_order_line; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_order_tb_order_line (order_id, orderlines_id) FROM stdin;
+102	251
+102	251
+102	252
+102	252
+102	253
+102	253
+102	254
+102	254
+107	269
+107	269
+107	270
+107	270
+107	271
+107	271
+107	272
+107	272
+103	255
+103	255
+103	256
+103	256
+103	257
+103	257
+103	258
+103	258
+104	259
+104	259
+104	260
+104	260
+105	261
+105	261
+101	262
+101	262
+101	263
+101	263
+106	264
+106	264
+106	265
+106	265
+106	266
+106	266
+106	267
+106	267
+106	268
+106	268
+\.
+
+
+--
+-- TOC entry 2050 (class 0 OID 33378)
+-- Dependencies: 179
+-- Data for Name: tb_product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tb_product (id, code, description, name, price, quantitadisponibile) FROM stdin;
+203	391489	Righello bello	Righello	1.5	100
+206	12309800	Goniometro carino	Goniometro	2	40
+210	2348799	Abbellisci il tuo quaderno	Adesivo	0.200000003	4000
+209	2130999	Contenitore per penne	Astuccio	5	69
+205	3240923	Evidenziatore giallo	Evidenziatore	2.5	149
+204	2035435	Squadra corta	Squadra	3	2
+211	21387499	Annota i tuoi compiti	Diario	15	299
+208	32943299	Libro Didattico	Libro	40	499
+207	203023	A quadretti	Quaderno	2	149
+202	23408420	Penna nera	Penna	1	1987
+201	2123440	Matita da disegno	Matita	0.5	997
+\.
+
+
+--
+-- TOC entry 1912 (class 2606 OID 33338)
+-- Name: openjpa_sequence_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY openjpa_sequence_table
+    ADD CONSTRAINT openjpa_sequence_table_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1914 (class 2606 OID 33346)
+-- Name: tb_address_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_address
+    ADD CONSTRAINT tb_address_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1916 (class 2606 OID 33354)
+-- Name: tb_admin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_admin
+    ADD CONSTRAINT tb_admin_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1918 (class 2606 OID 33362)
+-- Name: tb_customer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_customer
+    ADD CONSTRAINT tb_customer_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1924 (class 2606 OID 33374)
+-- Name: tb_order_line_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_order_line
+    ADD CONSTRAINT tb_order_line_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1922 (class 2606 OID 33369)
+-- Name: tb_order_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_order
+    ADD CONSTRAINT tb_order_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1926 (class 2606 OID 33385)
+-- Name: tb_product_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_product
+    ADD CONSTRAINT tb_product_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1920 (class 2606 OID 33364)
+-- Name: u_tb_ctmr_email; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_customer
+    ADD CONSTRAINT u_tb_ctmr_email UNIQUE (email);
+
+
+--
+-- TOC entry 1927 (class 2606 OID 33386)
+-- Name: tb_address_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_address
+    ADD CONSTRAINT tb_address_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES tb_customer(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1928 (class 2606 OID 33391)
+-- Name: tb_customer_address_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_customer
+    ADD CONSTRAINT tb_customer_address_id_fkey FOREIGN KEY (address_id) REFERENCES tb_address(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1929 (class 2606 OID 33396)
+-- Name: tb_order_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order
+    ADD CONSTRAINT tb_order_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES tb_customer(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1930 (class 2606 OID 33401)
+-- Name: tb_order_line_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order_line
+    ADD CONSTRAINT tb_order_line_order_id_fkey FOREIGN KEY (order_id) REFERENCES tb_order(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1931 (class 2606 OID 33406)
+-- Name: tb_order_line_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order_line
+    ADD CONSTRAINT tb_order_line_product_id_fkey FOREIGN KEY (product_id) REFERENCES tb_product(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1932 (class 2606 OID 33411)
+-- Name: tb_order_tb_order_line_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order_tb_order_line
+    ADD CONSTRAINT tb_order_tb_order_line_order_id_fkey FOREIGN KEY (order_id) REFERENCES tb_order(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1933 (class 2606 OID 33416)
+-- Name: tb_order_tb_order_line_orderlines_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order_tb_order_line
+    ADD CONSTRAINT tb_order_tb_order_line_orderlines_id_fkey FOREIGN KEY (orderlines_id) REFERENCES tb_order_line(id) DEFERRABLE;
+
+
+-- Completed on 2015-06-17 18:24:53
+
+--
+-- PostgreSQL database dump complete
+--
+

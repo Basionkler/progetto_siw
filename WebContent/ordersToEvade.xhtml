@@ -19,12 +19,14 @@
 				<th>ID ordine</th>
 				<th>Nome Cliente</th>
 				<th>Cognome Cliente</th>
+				<th>Indirizzo</th>
 				<th>Evadi</th>
 				<ui:repeat var="order" value="#{orderController.orderToEvade}">
 					<tr class="info">
 						<td>${order.id}</td>
 						<td>${order.customer.firstName}</td>
 						<td>${order.customer.lastName}</td>
+						<td>${order.customer.address}</td>
 						<td><h:commandButton 	class="btn btn-success" style="width:100px" value="Evadi" 
 												action="#{orderController.evadeOrder(order)}" /></td>
 					</tr>

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="tb_order_line")
-@NamedQuery(name = "findAllOrderLines", query = "SELECT p FROM tb_order_line p")
+@NamedQuery(name = "findAllOrderLines", query = "SELECT ol FROM OrderLine ol")
 public class OrderLine {
 
 	@Id

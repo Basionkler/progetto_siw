@@ -1,6 +1,7 @@
 package it.uniroma3.siw.model.facade;
 
 import java.util.Date;
+import java.util.List;
 
 import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
@@ -65,5 +66,10 @@ public class OrderFacade {
 	public void updateOrder(Order order) {
 		em.merge(order);		
 	}	
+	
+	public List<OrderLine> getAllLinesOrder(Order order) {
+		return em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order = :order", OrderLine.class)
+				.setParameter("order", order).getResultList();
+	}
 
 }

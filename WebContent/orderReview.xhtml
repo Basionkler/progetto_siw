@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" />
+	<h:title value="Order Review    -    SIW2015" />
+</h:head>
+<h:body>
+	<h:form class="form-inline" role="form">
+		<table class="table table-hover" style="width: 60%">
+		<tr class="info">
+			<th>Name</th>
+			<th>Price</th>
+				<ui:repeat var="lineOrder" items="#{orderController.orderlines;}">
+					<tr class="info">
+						<td>${lineOrder.product}</td>
+						<td>${lineOrder.quantity}</td>
+						<td>${lineOrder.unitPrice}</td>
+					</tr>
+				</ui:repeat>
+			</tr>
+		</table>
+		<h:commandButton class="btn btn-success" value="Concludi Ordine" action="#{orderController.closeOrder}" />
+	</h:form>
+</h:body>
+</html>

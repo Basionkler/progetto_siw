@@ -1,7 +1,10 @@
 package it.uniroma3.siw.controller;
 
+import java.util.List;
+
 import it.uniroma3.siw.model.Customer;
 import it.uniroma3.siw.model.Order;
+import it.uniroma3.siw.model.OrderLine;
 import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.model.facade.OrderFacade;
 
@@ -16,6 +19,7 @@ public class OrderController {
 	
 	private Integer quantity;
 	private Order ordineCorrente;
+	private List<OrderLine> orderlines;
 	private Customer c;
 	
 	@EJB(beanName="orderFacade")
@@ -35,7 +39,7 @@ public class OrderController {
 	
 	public String closeOrder() {
 		orderFacade.closeOrder(this.ordineCorrente);
-		return "orderReview";
+		return "customerProfile";
 	}
 	
 	public void evadeOrder() {
@@ -46,6 +50,11 @@ public class OrderController {
 		this.ordineCorrente.getOrderLines().add(orderFacade.createOrderLine(p, this.quantity));
 		orderFacade.updateOrder(this.ordineCorrente);
 		return "newOrder";
+	}
+	
+	public String listOrdersRows() {
+		this.orderlines = orderFacade.getAllLinesOrder(this.ordineCorrente);
+		return "orderReview";
 	}
 
 	public Integer getQuantity() {
@@ -78,6 +87,14 @@ public class OrderController {
 
 	public void setOrderFacade(OrderFacade orderFacade) {
 		this.orderFacade = orderFacade;
+	}
+
+	public List<OrderLine> getOrderlines() {
+		return orderlines;
+	}
+
+	public void setOrderlines(List<OrderLine> orderlines) {
+		this.orderlines = orderlines;
 	}
 
 	

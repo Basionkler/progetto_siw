@@ -33,12 +33,12 @@
 							<td>${product.price}</td>
 							<td><h:inputText value="#{orderController.quantity}" style="width:30px" />
 							</td>
-							<td><h:commandButton value="Aggiungi al carrello" action="#{orderController.addProduct(product)}" /></td>
+							<td><h:commandButton class="btn btn-success" value="Aggiungi al carrello" action="#{orderController.addProduct(product)}" /></td>
 						</tr>
 					</h:form> 
 				</ui:repeat> 
 			</table>
-			<h:commandButton value="Completa l'ordine" action="#{orderController.closeOrder}" />
+			<h:commandButton value="Completa l'ordine" action="#{orderController.listOrdersRows}" />
 	</f:view>
 
 </h:body>

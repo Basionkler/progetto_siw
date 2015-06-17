@@ -3,6 +3,16 @@ Amazon EC2
 
 Il progetto è stato caricato su Amazon AWS ed è disponibile [qui](http://52.28.151.79/progetto_siw)
 
+Sono stati aggiunti degli utenti di prova. Le credenziali per effetuare l'accesso sono le seguenti:
+
+**Customer**
+Email:    customer@customer.it
+Password: customer
+
+**Admin**
+Nickname: admin
+Password: admin
+
 Casi d'uso
 ==========
 

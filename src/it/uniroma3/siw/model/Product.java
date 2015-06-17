@@ -20,7 +20,7 @@ public class Product {
 
 	@Column(nullable = false)
 	private Float price;
-	
+
 	@Column(nullable = false)
 	private Integer quantitaDisponibile;
 
@@ -38,16 +38,16 @@ public class Product {
 	//Costruttore
 
 	public Product() {
-    }
+	}
 
 	public Product(String name, Float price, String description, String code, Integer quantity) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.code = code;
-        this.quantitaDisponibile = quantity;
-       // this.providers = new ArrayList<Provider>();
-}
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.code = code;
+		this.quantitaDisponibile = quantity;
+		// this.providers = new ArrayList<Provider>();
+	}
 
 
 
@@ -101,6 +101,14 @@ public class Product {
 		this.orderLine = orderLine;
 	}
 
+	public Integer getQuantitaDisponibile() {
+		return quantitaDisponibile;
+	}
+
+	public void setQuantitaDisponibile(Integer quantitaDisponibile) {
+		this.quantitaDisponibile = quantitaDisponibile;
+	}
+
 	/*
 	public List<Provider> getProviders() {
 		return providers;
@@ -109,7 +117,7 @@ public class Product {
 	public void setProviders(List<Provider> providers) {
 		this.providers = providers;
 	}
-	*/
+	 */
 	@Override
 	public String toString() {
 		return "[name=" + name + ", description=" + description

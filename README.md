@@ -76,8 +76,42 @@ Casi d'uso amministratore:
 
 ###Login:
 
+    L'utente inserisce il proprio username e la propria password.
+
+    L'utente fa click su *Login Admin*.
+
+    Il sistema controlla i dati inseriti e autentica l'utente amministratore.
+
+
 ###Logout:
+
+    L'amministratore autenticato seleziona il pulsante *Logout*.
+
+    Il sistema deautentica l'amministratore e lo reindirizza alla pagina principale.
 
 ###Inserimento nuovo amministratore:
 
+    L'amministratore autenticato fa click sul pulsante *Inserisci admin*
+
+    L'amministratore inserisce username, email e password del nuovo admin e seleziona il pulsante *Conferma*
+
+    Il sistema registra i dati del nuovo amministratore.
+
 ###Inserimento nuovo prodotto:
+
+    L'amministratore seleziona il pulsante *Inserisci prodotto*.
+
+    L'amministratore inserisce i dati relativi al nuovo prodotto e fa click su *submit*.
+
+    Il sistema valida i dati e inserisce il nuovo prodotto.
+
+###Evasione ordine:
+
+    L'amministratore seleziona *Evadi ordine*.
+
+    Il sistema mostra una lista di ordini non evasi con i relativi dati dell'utente.
+
+    L'amministratore fa click su *Evadi*.
+
+    Il sistema controlla che i prodotti relativi all'ordine siano disponibili, registra la data di evasione
+    e rimuove i prodotti acquistati dal catalogo.

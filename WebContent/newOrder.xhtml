@@ -15,30 +15,30 @@
 <h:body>
 	<f:view>
 		<h1>Products</h1>
-			<table class="table table-hover">
-				<tr class="info">
-					<th>Name</th>
-					<th>Price</th>
-					<th>Quantità</th>
-					<th>Aggiungi prodotto</th>
-				</tr>
-				<ui:repeat var="product" value="#{productController.products}">
-					<h:form>
-						<tr class="info">
-							<td><h:commandLink action="#{productController.findProduct}"
-									value="#{product.name}">
-									<f:param name="id" value="#{product.id}" />
-								</h:commandLink>
+			<h:form class="form-inline" role="form">
+				<table class="table table-hover">
+					<tr class="info">
+						<th>Name</th>
+						<th>Price</th>
+						<th>Quantità</th>
+						<th>Aggiungi prodotto</th>
+					</tr>
+					<ui:repeat var="product" value="#{productController.products}">
+							<tr class="info">
+								<td><h:commandLink action="#{productController.findProduct}"
+										value="#{product.name}">
+										<f:param name="id" value="#{product.id}" />
+									</h:commandLink>
+									</td>
+								<td>${product.price}</td>
+								<td><h:inputText value="#{orderController.quantity}" style="width:30px" />
 								</td>
-							<td>${product.price}</td>
-							<td><h:inputText value="#{orderController.quantity}" style="width:30px" />
-							</td>
-							<td><h:commandButton class="btn btn-success" value="Aggiungi al carrello" action="#{orderController.addProduct(product)}" /></td>
-						</tr>
-					</h:form> 
-				</ui:repeat> 
-			</table>
-			<h:commandButton value="Completa l'ordine" action="#{orderController.listOrdersRows}" />
+								<td><h:commandButton class="btn btn-success" value="Aggiungi al carrello" action="#{orderController.addProduct(product)}" /></td>
+							</tr>
+					</ui:repeat> 
+				</table>
+				<h:commandButton class="btn btn-primary" value="Completa l'ordine" action="#{orderController.listOrdersRows}" />
+			</h:form> 
 	</f:view>
 
 </h:body>

@@ -20,11 +20,13 @@
 					<p style="font-style:bold; font-size:20px; float:center"> New Product </p>
 				</div>
 				<div class="form-group">
+					<h:outputLabel style="width:150px" value="Nome: "/>
 					<h:inputText class="form-control" style="width:200px" value="#{productController.name}" required="true"
 						requiredMessage="Il nome è obligatorio" id="name" p:placeholder="Nome Prodotto" />
 					<h:message for="name" styleClass="error" />
 				</div>
 				<div class="form-group">
+					<h:outputLabel style="width:150px" value="Codice: "/>
 					<h:inputText class="form-control" style="width:200px" value="#{productController.code}" required="true"
 						requiredMessage="Il Codice è obligatorio"
 						validatorMessage="Il Codice deve essere lungo tra i 6 e gli 8 caratteri"
@@ -34,6 +36,7 @@
 					<h:message for="code" styleClass="error" />
 				</div>
 				<div class="form-group">
+					<h:outputLabel style="width:150px" value="Prezzo:"/>
 					<h:inputText class="form-control" style="width:200px" value="#{productController.price}" required="true"
 						requiredMessage="Il prezzo è obligatorio"
 						converterMessage="Il prezzo deve essere un numero"
@@ -44,6 +47,7 @@
 					<h:message for="price" styleClass="error" />
 				</div>
 				<div class="form-group">
+					<h:outputLabel style="width:150px" value="Quantità:"/>
 					<h:inputText class="form-control" style="width:200px" value="#{productController.quantity}" required="true"
 						requiredMessage="devi inserire almeno 1"
 						converterMessage="deve essere un numero"
@@ -53,15 +57,20 @@
 					<h:message for="price" styleClass="error" />
 				</div>
 				<div class="form-group">
+					<h:outputLabel style="width:150px" value="Descrizione:"/>
 					<h:inputText class="form-control" style="width:200px" value="#{productController.description}"
 						required="false" p:placeholder="Descrizione prodotto" />
 					<h:commandButton class="btn btn-success" style="width:100px" value="Submit"
 						action="#{productController.createProduct}" />
-					<h:commandButton class="btn btn-primary" style="width:100px" value="Torna indietro!" action="adminProfile" />
 				</div>
 			</div>
 		</h:form>
 		<br />
+		<h:form>
+			<div class="container" style="width:250px; height:200px; float:center; margin-top:220px">
+				<h:commandButton class="btn btn-primary" style="width:100px" value="Torna indietro!" action="adminProfile" />
+			</div>
+		</h:form>
 	</f:view>
 </h:body>
 </html>

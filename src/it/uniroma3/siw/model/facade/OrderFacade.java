@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model.facade;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +39,8 @@ public class OrderFacade {
 	}
 
 	public List<Order> getOrdiniDaEvadere(){
-		return em.createQuery("SELECT o FROM Order o WHERE o.processingDate is null AND o.closingDate is NOT null", Order.class).getResultList();
+		return em.createQuery("SELECT o FROM Order o WHERE o.processingDate is null AND o.closingDate is NOT null", Order.class)
+				.getResultList();
 	}
 	
 	public Order evadeOrder(Order ordineCorrente) {
@@ -74,6 +76,14 @@ public class OrderFacade {
 	public Order getOrder(Long id) {
 		Order order = em.find(Order.class, id);
 		return order;
+	}
+	
+	public List<Order> getCustomerOrders(Customer c) {
+		try {
+			return em.createQuery("SELECT o FROM Order o WHERE o.customer = :c", Order.class).setParameter("c", c).getResultList();
+		} catch(NullPointerException e) {
+			return new ArrayList<Order>();
+		}
 	}
 
 	public Order getOrdineAperto(Customer c){

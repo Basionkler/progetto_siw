@@ -40,7 +40,7 @@ public class ProductFacade{
 	public Product getProduct(String code) {
 		Product product;
 		try{
-			product = em.createQuery("SELECT p FROM product p WHERE p.code = :c", Product.class).setParameter("c",code).getSingleResult();
+			product = em.createQuery("SELECT p FROM Product p WHERE p.code = :c", Product.class).setParameter("c",code).getSingleResult();
 		}catch (NoResultException e){
 			return null;
 		}

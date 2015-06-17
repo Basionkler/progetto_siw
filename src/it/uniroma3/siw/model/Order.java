@@ -40,6 +40,10 @@ public class Order {
 		}
 		return tot;
 	}
+	
+	public void addOrderLine(OrderLine ol) {
+		if(ol != null) this.orderLines.add(ol);
+	}
 
 	//Getter&Setter
 	public Long getId() {

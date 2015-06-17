@@ -47,7 +47,9 @@ public class OrderController {
 	}
 	
 	public String addProduct(Product p){
-		this.ordineCorrente.getOrderLines().add(orderFacade.createOrderLine(p, this.quantity));
+		OrderLine ol = orderFacade.findProdottoInOrdine(p,ordineCorrente);
+		if(ol==null) this.ordineCorrente.getOrderLines().add(orderFacade.createOrderLine(p, this.quantity, this.ordineCorrente));
+		else ol.setQuantity(quantity);
 		orderFacade.updateOrder(this.ordineCorrente);
 		return "newOrder";
 	}

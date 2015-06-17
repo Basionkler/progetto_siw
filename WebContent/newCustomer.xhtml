@@ -1,43 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
-		 xmlns:f="http://java.sun.com/jsf/core"
-		 xmlns:h="http://java.sun.com/jsf/html">
-
-<head>
-<title>Registrati</title>
-</head>
-
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" />
+	<title> New Customer </title>
+</h:head>
+<h:body style="background-image:url(Resources/bg-wave-grunge-blue-grey.jpg); background-size:cover; overflow:hidden">
 <f:view>
-	<h:form>
-		<div>
-    		<h:outputLabel value="Nome:"/>
-	    	<h:inputText value="#{customerController.firstName}"
+	<h:form class="form-inline" role="form"><br /><br /><br />
+	<div class="container">
+		<div class="form-group">
+    		<h:outputLabel style="width:150px" value="Nome:"/>
+	    	<h:inputText class="form-control" style="width:150px" value="#{customerController.firstName}"
     			required="true"
 				requiredMessage="Il nome è obligatorio" id="firstname">
 			</h:inputText>
 			<h:message for="name" styleClass="error" />
 		</div>
-		<div>
-    		<h:outputLabel value="Cognome:"/>
-    		<h:inputText value="#{customerController.lastName}"
+		<div class="form-group">
+    		<h:outputLabel style="width:150px" value="Cognome:"/>
+    		<h:inputText class="form-control" style="width:150px" value="#{customerController.lastName}"
     			required="true"
 				requiredMessage="Il cognome è obligatorio" id="lastname">
 			</h:inputText>
 			<h:message for="lastname" styleClass="error" />
 		</div>
-		<div>
- 			<h:outputLabel value="Email:"/>
-    		<h:inputText value="#{customerController.email}"
+		<div class="form-group">
+ 			<h:outputLabel style="width:150px" value="Email:"/>
+    		<h:inputText class="form-control" style="width:150px" value="#{customerController.email}"
     			required="true"
 				requiredMessage="la mail è obligatoria"
 				id="email">
 			</h:inputText>
 			<h:message for="email" styleClass="error" />
 		</div>
-		<div>
- 			<h:outputLabel value="Password:"/>
-    		<h:inputSecret value="#{customerController.password}"
+		<div class="form-group">
+ 			<h:outputLabel style="width:150px" value="Password:"/>
+    		<h:inputSecret class="form-control" style="width:150px" value="#{customerController.password}"
     			required="true"
 				requiredMessage="la password è obligatoria"
 				validatorMessage="la password deve essere lungo almeno 6 caratteri"
@@ -46,9 +52,9 @@
 			</h:inputSecret>
 			<h:message for="password" styleClass="error" />
 		</div>
-		<div>
-		<h:outputLabel value="Data di Nascita:"/>
-		<h:inputText value = "#{customerController.dateOfBirth}"
+		<div class="form-group">
+		<h:outputLabel style="width:150px" value="Data di Nascita:"/>
+		<h:inputText class="form-control" style="width:150px" value = "#{customerController.dateOfBirth}"
 				required = "true"
 				requiredMessage="la data di nascita è obbligatoria"
 				id="dateOfBirth">
@@ -56,9 +62,9 @@
 				<h:message for="dateOfBirth" styleClass="error" />
 		</h:inputText>
 		</div>
-		<div>
-			<h:outputLabel />Via:
-			<h:inputText value="#{customerController.street}" 
+		<div class="form-group">
+			<h:outputLabel style="width:150px" value="Via" />
+			<h:inputText class="form-control" style="width:150px" value="#{customerController.street}" 
 				required="true"
 				requiredMessage="la via è obligatoria"
 				validatorMessage="la via deve essere lunga almeno 6 caratteri"
@@ -67,27 +73,27 @@
 			</h:inputText>
 			<h:message for="street" styleClass="error" />
 		</div>
-		<div>
-			<h:outputLabel />city:
-			<h:inputText value="#{customerController.city}"
+		<div class="form-group">
+			<h:outputLabel style="width:150px" value="Città" />
+			<h:inputText class="form-control" style="width:150px" value="#{customerController.city}"
 				required="true"
 				requiredMessage="la città è obligatoria"
 				id="city">
 			</h:inputText>
 			<h:message for="city" styleClass="error" />
 		</div>
-		<div>
-			<h:outputLabel />state:
-			<h:inputText value="#{customerController.state}"
+		<div class="form-group">
+			<h:outputLabel style="width:150px" value="Stato"/>
+			<h:inputText class="form-control" style="width:150px" value="#{customerController.state}"
 				required="true"
 				requiredMessage="lo stato è obligatorio"
 				id="state">
 			</h:inputText>
 			<h:message for="state" styleClass="error" />
 		</div>
-		<div>
-			<h:outputLabel />zipCode:
-			<h:inputText value="#{customerController.zipCode}"
+		<div class="form-group">
+			<h:outputLabel style="width:150px" value="ZipCode" />
+			<h:inputText class="form-control" style="width:150px" value="#{customerController.zipCode}"
 				required="true"
 				requiredMessage="lo zipCode è obligatorio"
 				validatorMessage="lo zipCode deve essere lunga 5 caratteri"
@@ -96,10 +102,11 @@
 			</h:inputText>
 			<h:message for="zipCode" styleClass="error" />
 		</div>
-		<div>
-			<h:commandButton value="Submit"	action="#{customerController.createCustomer}" />
+		<div class="form-group">
+			<h:commandButton class="btn btn-success" value="Submit"	action="#{customerController.createCustomer}" />
 		</div>
+	</div>
 	</h:form>
 </f:view>
-</body>
+</h:body>
 </html>

@@ -8,4 +8,4 @@ maven
 .settings
 progetto_siw.iml
 pom.xml
-#WebContent/WEB-INF/web.xml
+web.xml

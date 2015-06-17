@@ -6,11 +6,15 @@ Il progetto è stato caricato su Amazon AWS ed è disponibile [qui](http://52.28
 Sono stati aggiunti degli utenti di prova. Le credenziali per effetuare l'accesso sono le seguenti:
 
 **Customer**
+
 Email:    customer@customer.it
+
 Password: customer
 
 **Admin**
+
 Nickname: admin
+
 Password: admin
 
 Casi d'uso

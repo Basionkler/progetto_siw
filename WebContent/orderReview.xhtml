@@ -17,12 +17,14 @@
 		<table class="table table-hover" style="width: 60%">
 		<tr class="info">
 			<th>Nome</th>
+			<th>Descrizione></th>
 			<th>Quantità</th>
 			<th>Prezzo Unitario</th>
 			<th>Prezzo Totale</th>
 				<ui:repeat var="lineOrder" value="#{orderController.orderlines}">
 					<tr class="info">
-						<td>${lineOrder.product}</td>
+						<td>${lineOrder.product.name}</td>
+						<td>${lineOrder.product.description}</td>
 						<td>${lineOrder.quantity}</td>
 						<td>${lineOrder.unitPrice}</td>
 						<td>${lineOrder.subTotal}</td>

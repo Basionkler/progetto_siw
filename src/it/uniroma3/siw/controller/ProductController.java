@@ -114,6 +114,18 @@ public class ProductController {
 		if (this.products == null) return 0;
 		return this.products.size();
 	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public ProductFacade getProductFacade() {
+		return productFacade;
+	}
 }
 
 

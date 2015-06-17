@@ -54,21 +54,8 @@ public class Customer{
 		this.orders = new ArrayList<>();
 	}
 
-	/**
-	 * da "siw-progetto-1.pptx"
-	 * @param order aggiunge un nuovo ordine
-	 */
 	public void addOrder(Order order) {
 		if(order != null) this.orders.add(order);
-	}
-	
-	/**
-	 * da "siw-progetto-1.pptx"
-	 * il cliente deve poter consultare il catalogo prodotti
-	 * @param pc catalogo dei prodotti
-	 */
-	public void consultCatalogue(ProductCatalogue pc) {
-		pc.getProductList();
 	}
 	
 	// GETTERS AND SETTERS

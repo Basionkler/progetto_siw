@@ -26,9 +26,6 @@ public class Address {
     @OneToOne
     private Customer customer;
 
-    @OneToOne
-    private Provider provider;
-    
 //costruttori
    
     public Address() {		
@@ -63,9 +60,6 @@ public class Address {
 		this.customer = customer;
 	}
 
-	public void setProvider(Provider provider) {
-		this.provider = provider;
-	}
 
 	public Long getId() {
 		return id;
@@ -91,9 +85,6 @@ public class Address {
 		return customer;
 	}
 
-	public Provider getProvider() {
-		return provider;
-	}
 
 	@Override
 	public String toString() {

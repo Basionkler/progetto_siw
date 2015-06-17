@@ -48,8 +48,8 @@ public class OrderController {
 		orderFacade.evadeOrder(ordinecorrente);
 	}
 	
-	public List<Order> retrieveCustomerOrder() {
-		return orderFacade.getCustomerOrders(this.c);
+	public List<Order> retrieveCustomerOrder(Customer customer) {
+		return orderFacade.getCustomerOrders(customer);
 	}
 	
 	public List<Order> getOrderToEvade() {
@@ -67,6 +67,11 @@ public class OrderController {
 	public String listOrdersRows() {
 		this.orderlines = orderFacade.getAllLinesOrder(this.ordineCorrente);
 		return "orderReview";
+	}
+	
+	public int getSize() {
+		if(orderForCustomer == null) return 0;
+		return this.orderForCustomer.size();
 	}
 
 	public Integer getQuantity() {

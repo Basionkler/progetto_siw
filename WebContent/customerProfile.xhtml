@@ -14,24 +14,23 @@
 <h:body>
 	<h3>Welcome to our E-Commerce,
 		#{customerController.customer.firstName}!</h3>
-	<h:form>
-		<h:commandButton class="btn btn-info" style="width:200px" value="Visualizza lista prodotti!"
-			action="#{productController.listProducts}" />
-			${productController.size}
-		<div>
-			<c:if test="#{productController.size gt 0}">
-				<table>
-					<tr>
-						<th>Nome</th>
-						<th>Prezzo</th>
+	<h:form class="form-inline" role="form">
+		<h:commandButton 	class="btn btn-info" style="width:200px" value="Visualizza Ordini"
+							action="#{orderController.retrieveCustomerOrder(customerController.customer)}" />
+		<div class="container">
+			<c:if test="#{orderController.size gt 0}">
+				<table class="table table-hover">
+					<tr class="info">
+						<th>ID Ordine</th>
+						<th>Data apertura</th>
+						<th>Data chiusura</th>
+						<th>Stato</th>
 					</tr>
-					<ui:repeat var="product" value="#{productController.products}">
-						<tr>
-							<td><h:commandLink action="#{productController.findProduct}"
-									value="#{product.name}">
-									<f:param name="id" value="#{product.id}" />
-								</h:commandLink></td>
-							<td>${product.price}</td>
+					<ui:repeat var="order" value="#{orderController.orderForCustomer}">
+						<tr class="info">
+							<td>${order.id}</td>
+							<td>${order.creationDate}</td>
+							<td>${order.closingDate}</td>
 						</tr>
 					</ui:repeat>
 				</table>

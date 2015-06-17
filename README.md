@@ -3,15 +3,15 @@ Casi d'uso
 
 ###Consulta listino:
 
-    Un utente non autenticato consulta il catalogo dei prodotti tramite il pulsante *Visualizza lista prodotti*.
+  Un utente non autenticato consulta il catalogo dei prodotti tramite il pulsante *Visualizza lista prodotti*.
 
-    Il sistema mostra l'elenco dei prodotti nel catalogo.
+  Il sistema mostra l'elenco dei prodotti nel catalogo.
 
-    L'utente sceglie un prodotto e ne richiede i dettagli.
+  L'utente sceglie un prodotto e ne richiede i dettagli.
 
-    Il sistema mostra i dettagli del prodotto scelto.
+  Il sistema mostra i dettagli del prodotto scelto.
 
-    L'utente ripete i passi precedenti un numero indefinito di volte.
+  L'utente ripete i passi precedenti un numero indefinito di volte.
 
 Casi d'uso cliente:
 -------------------

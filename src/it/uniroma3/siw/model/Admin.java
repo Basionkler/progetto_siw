@@ -2,8 +2,6 @@ package it.uniroma3.siw.model;
 
 import javax.persistence.*;
 
-import java.util.*;
-
 /* TEMPORANEA
  * VALUTARE SE INSERIRE CLASSE ASTRATTA UTENTE
  * DA FAR ESTENDERE A CUSTOMER E ADMIN,
@@ -32,28 +30,12 @@ public class Admin{
 	@Column(nullable = false)
 	private String password;
 
-	@Column
-	private List<Customer> customerRegistry;
 
 	public Admin(String nickname, String email, String password) {
 
 		this.nickname = nickname;
 		this.email = email;
 		this.password = password;
-		this.customerRegistry = new ArrayList<>();
-
-	}
-
-	public void addCustomerToRegistry(Customer c) {
-		if(c != null) this.customerRegistry.add(c);
-	}
-
-	public List<Customer> getCustomerRegistry() {
-		return customerRegistry;
-	}
-
-	public void setCustomerRegistry(List<Customer> customerRegistry) {
-		this.customerRegistry = customerRegistry;
 	}
 
 	public Long getId() {
